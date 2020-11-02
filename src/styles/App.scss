@@ -1,6 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
 
-html,body,#root,.App{
+@import "./variables";
+@import "./animations";
+
+html,
+body,
+#root,
+.App {
   height: 100%;
   margin: 0;
-  
+  scroll-behavior: smooth;
+  font-family: "Bree Serif", serif;
+}
+
+//AUTHENTICATION SCSS
+
+.authentication {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  background-image: url("../images/Authentication.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    min-width: 720px;
+    transition: all 0.5s;
+    width: 50%;
+    max-width: 860px;
+    height: 550px;
+    #left-panel {
+      box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.548);
+      display: none;
+      background-image: url("../images/AuthCard.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: red;
+
+      width: 40%;
+      transition: all 0.5s;
+      .information-container {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3em 0;
+        align-items: center;
+        .title {
+          display: flex;
+          flex-direction: column;
+    
+          color: white;
+          .img-container {
+            align-self: center;
+            margin: auto;
+            img {
+              height: 100px;
+            }
+          }
+        }
+        .description {
+          align-self: center;
+          margin: auto;
+          h1 {
+            text-align: center;
+            font-size: 33px;
+          }
+          p {
+            opacity: 0.8;
+            text-align: center;
+          }
+          .links {
+            display: flex;
+            margin: 0 1em;
+            a {
+              opacity: 0.95;
+              margin: 0 1em;
+              font-size: 20px;
+              color: white;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+    #right-panel {
+      box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.548);
+      transition: all 0.5s;
+      background-color: white;
+      width: 60%;
+    }
+    @media (min-width: 710px) {
+      #left-panel {
+        display: flex;
+      }
+      #right-panel {
+      }
+    }
+    @media (min-width: 510px) {
+      min-width: 770px;
+      #right-panel {
+      }
+    }
+  }
+}
+
+//Login Form
+.login-container,
+.register-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+  height: 90%;
+  padding: 1em 3em 1em 3em;
+  animation: fadeIn 0.5s;
+  .title {
+    top: 0;
+    color: $darkgreen;
+
+    h1 {
+      margin: 0.3em 0;
+      font-size: 30px;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  .sep {
+    display: flex;
+    align-self: center;
+    width: 80%;
+    border: 1px solid #d4d4d4;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    button {
+      width: 40%;
+      margin: 2em 0;
+    }
+  }
 }

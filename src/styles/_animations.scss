@@ -1,0 +1,10 @@
+@keyframes fadeIn {
+  from {
+    right:-5px;
+    opacity: 0;
+  }
+  to {
+      right:0px;
+    opacity: 1;
+  }
+}

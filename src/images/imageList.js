@@ -1,0 +1,1 @@
+export {default as ShieldLogo} from './ShieldLogo.png';

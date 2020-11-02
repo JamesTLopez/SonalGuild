@@ -2,15 +2,15 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-function LoginForm() {
+function RegisterForm() {
   return (
-    <div className="login-container">
+    <div className="register-container">
       <div className="title">
-        <h1>START YOUR SONG WRITING! </h1>
-        <p>Please login to your account.</p>
-        <p>Dont have an account? Register now!</p>
+        <h1>CREATE AN ACCOUNT </h1>
+        <p>Please put in the required information.</p>
+        <p>Already have an account? Register now!</p>
       </div>
-      <div className="sep"></div>
+
       <div className="form">
         <TextField
           id="filled-full-width"
@@ -36,16 +36,28 @@ function LoginForm() {
           }}
           variant="outlined"
         />
+         <TextField
+          id="filled-full-width"
+          label="Confirm Password"
+          style={{ margin: "1em 0" }}
+          placeholder=""
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
+        />
         <Button
           variant="contained"
           color="primary"
           style={{ background: "#2a9d8f" }}
         >
-          Login
+          Register
         </Button>
       </div>
     </div>
   );
 }
 
-export default LoginForm;
+export default RegisterForm;

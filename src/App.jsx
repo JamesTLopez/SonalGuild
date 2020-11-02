@@ -1,5 +1,3 @@
-import "./styles/App.css";
-
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import configureStore from "./store";
@@ -12,7 +10,7 @@ function App() {
       <Router>
         <div className="App">
           <Switch>
-            <Route path="/signin">
+            <Route path="/authentication">
               <Authentication />
             </Route>
             <Route path="/home">
