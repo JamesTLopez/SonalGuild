@@ -354,10 +354,117 @@ body,
 }
 
 .dashboard-container .dashboard-content .SongLibrary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   padding: 2em;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #a8dadc36;
+  margin: 0.7em;
+  border-radius: 2px;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .title-container h1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #264653;
+  font-size: 25px;
+  margin: 0 0 0 1em;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0.7em;
+  margin-top: 1em;
+  display: flex;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list .song-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.267);
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list .song-header h3 {
+  margin: 0.5em;
+  font-size: 18px;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list .song-header #half {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list .song-header #quarter {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.267);
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list .list h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.5em;
+  font-size: 17px;
+  opacity: 0.7;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list .list a {
+  text-decoration: none;
+  color: #264653;
+  margin: 0;
+  padding: 0;
+  margin: 0.5em;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list .list #half {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list .list #quarter {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list .list:hover {
+  background-color: #a8dadc36;
 }
 
 .sep {
