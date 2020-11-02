@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
@@ -36,13 +37,16 @@ function LoginForm() {
           }}
           variant="outlined"
         />
-        <Button
-          variant="contained"
-          color="primary"
-          style={{ background: "#2a9d8f" }}
-        >
-          Login
-        </Button>
+        <div className="button-group">
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ background: "#2a9d8f" }}
+          >
+            Login
+          </Button>
+          <Link to={`/authentication/register`}>Register here to start writing!</Link>
+        </div>
       </div>
     </div>
   );

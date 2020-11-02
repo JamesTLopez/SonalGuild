@@ -134,21 +134,6 @@ body,
   text-align: center;
 }
 
-.authentication .auth-container #left-panel .information-container .description .links {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 1em;
-}
-
-.authentication .auth-container #left-panel .information-container .description .links a {
-  opacity: 0.95;
-  margin: 0 1em;
-  font-size: 20px;
-  color: white;
-  text-decoration: none;
-}
-
 .authentication .auth-container #right-panel {
   -webkit-box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.548);
           box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.548);
@@ -230,9 +215,34 @@ body,
           flex-direction: column;
 }
 
-.login-container .form button,
-.register-container .form button {
+.login-container .form .button-group,
+.register-container .form .button-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-right: 1em;
+}
+
+.login-container .form .button-group button,
+.register-container .form .button-group button {
   width: 40%;
   margin: 2em 0;
+}
+
+.login-container .form .button-group a,
+.register-container .form .button-group a {
+  margin: 0 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: #2a9d8f;
+  text-decoration: none;
 }
 /*# sourceMappingURL=App.css.map */

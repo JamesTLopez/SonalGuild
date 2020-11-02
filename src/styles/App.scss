@@ -75,17 +75,6 @@ body,
             opacity: 0.8;
             text-align: center;
           }
-          .links {
-            display: flex;
-            margin: 0 1em;
-            a {
-              opacity: 0.95;
-              margin: 0 1em;
-              font-size: 20px;
-              color: white;
-              text-decoration: none;
-            }
-          }
         }
       }
     }
@@ -141,9 +130,23 @@ body,
   .form {
     display: flex;
     flex-direction: column;
-    button {
-      width: 40%;
-      margin: 2em 0;
+    .button-group{
+      display: flex;
+      justify-content: space-between;
+      margin-right: 1em;
+      button {
+        width: 40%;
+        margin: 2em 0;
+      }
+      a{
+        margin: 0 1em;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color:$lightgreen;
+        text-decoration: none;
+      }
     }
+
   }
 }

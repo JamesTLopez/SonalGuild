@@ -18,10 +18,7 @@ function Register() {
               <div className="description">
                 <h1>Sonals Guild</h1>
                 <p>A song writing app that enables your creativity!</p>
-                <div className="links">
-                  <Link to={`${url}/login`}>Login Here!</Link>
-                  <Link to={`${url}/register`}>Register</Link>
-                </div>
+
               </div>
             </div>
           </div>

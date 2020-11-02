@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
@@ -36,7 +37,7 @@ function RegisterForm() {
           }}
           variant="outlined"
         />
-         <TextField
+        <TextField
           id="filled-full-width"
           label="Confirm Password"
           style={{ margin: "1em 0" }}
@@ -48,13 +49,16 @@ function RegisterForm() {
           }}
           variant="outlined"
         />
-        <Button
-          variant="contained"
-          color="primary"
-          style={{ background: "#2a9d8f" }}
-        >
-          Register
-        </Button>
+        <div className="button-group">
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ background: "#2a9d8f" }}
+          >
+            Register
+          </Button>
+          <Link to={`/authentication/login`}>Already have an account? Login Here!</Link>
+        </div>
       </div>
     </div>
   );
