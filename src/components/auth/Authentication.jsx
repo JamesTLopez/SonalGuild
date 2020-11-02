@@ -1,11 +1,11 @@
 import React from "react";
-import { Switch, Route, useRouteMatch, Link } from "react-router-dom";
+import { Switch, Route,useRouteMatch } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import { ShieldLogo } from "../../images/imageList";
 
 function Register() {
-  let { path, url } = useRouteMatch();
+  let { path } = useRouteMatch();
   return (
     <div className="authentication">
       <div className="auth-container">
@@ -18,7 +18,6 @@ function Register() {
               <div className="description">
                 <h1>Sonals Guild</h1>
                 <p>A song writing app that enables your creativity!</p>
-
               </div>
             </div>
           </div>

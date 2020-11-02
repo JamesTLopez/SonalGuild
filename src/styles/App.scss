@@ -7,14 +7,16 @@ html,
 body,
 #root,
 .App {
+  min-height: 100vh;
   height: 100%;
   margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
   font-family: "Bree Serif", serif;
 }
 
-//AUTHENTICATION SCSS
 
+//AUTHENTICATION SCSS
 .authentication {
   display: flex;
   justify-content: center;
@@ -54,7 +56,7 @@ body,
         .title {
           display: flex;
           flex-direction: column;
-    
+          margin: 0 1em;
           color: white;
           .img-container {
             align-self: center;
@@ -66,7 +68,7 @@ body,
         }
         .description {
           align-self: center;
-          margin: auto;
+          margin: 0;
           h1 {
             text-align: center;
             font-size: 33px;
@@ -88,17 +90,12 @@ body,
       #left-panel {
         display: flex;
       }
-      #right-panel {
-      }
     }
     @media (min-width: 510px) {
       min-width: 770px;
-      #right-panel {
-      }
     }
   }
 }
-
 //Login Form
 .login-container,
 .register-container {
@@ -121,16 +118,11 @@ body,
       margin: 0;
     }
   }
-  .sep {
-    display: flex;
-    align-self: center;
-    width: 80%;
-    border: 1px solid #d4d4d4;
-  }
+
   .form {
     display: flex;
     flex-direction: column;
-    .button-group{
+    .button-group {
       display: flex;
       justify-content: space-between;
       margin-right: 1em;
@@ -138,15 +130,109 @@ body,
         width: 40%;
         margin: 2em 0;
       }
-      a{
+      a {
         margin: 0 1em;
         display: flex;
         align-items: center;
         text-align: center;
-        color:$lightgreen;
+        color: $lightgreen;
         text-decoration: none;
       }
     }
-
   }
 }
+
+//Dashboard container
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+
+  //HEADER DASHBOARD
+  .header-dash {
+    display: flex;
+    position: relative;
+    width: 100%;
+    min-height: $header-height;
+    background-color: $redsun;
+    a {
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      margin: 0.8em;
+      img {
+        height: 35px;
+      }
+      label {
+        margin-left: 10px;
+        font-size: 20px;
+        color: white;
+        align-self: center;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    nav {
+      display: flex;
+      flex: 1 0 auto;
+      padding: 1em;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  .dashboard-content {
+    position: fixed;
+    display: flex;
+    top: 62px;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    .project-navigation {
+      display: flex;
+      padding: 1em;
+      flex-direction: column;
+      flex: 0 0 240px;
+      background-color: $skyblue;
+      h1{
+        margin: 0 0 1em;
+        font-size: 20px;
+        color:$darkgreen;
+      }
+      nav{
+        display: flex;
+        flex-direction: column;
+        a{
+          text-decoration: none;
+          color:$darkgreen;
+          margin: 0.5em 0;
+        }
+      }
+    }
+    .SongLibrary {
+      flex: 1 1 auto;
+      padding: 2em;
+
+    }
+  }
+}
+
+
+
+
+
+
+
+//MISCELLANEOUS
+
+// LINE DIVIDER HORIZONTAL
+.sep {
+  display: flex;
+  align-self: center;
+  width: 100%;
+  border: 1px solid #d4d4d4;
+}
+

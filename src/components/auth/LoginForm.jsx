@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link ,useHistory} from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 function LoginForm() {
+  let history = useHistory();
   return (
     <div className="login-container">
       <div className="title">
@@ -42,6 +43,7 @@ function LoginForm() {
             variant="contained"
             color="primary"
             style={{ background: "#2a9d8f" }}
+            onClick={() => {history.push('/dashboard')}}
           >
             Login
           </Button>

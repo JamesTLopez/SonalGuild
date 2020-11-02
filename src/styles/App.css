@@ -24,8 +24,10 @@ html,
 body,
 #root,
 .App {
+  min-height: 100vh;
   height: 100%;
   margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
   font-family: "Bree Serif", serif;
 }
@@ -103,6 +105,7 @@ body,
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin: 0 1em;
   color: white;
 }
 
@@ -121,7 +124,7 @@ body,
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  margin: auto;
+  margin: 0;
 }
 
 .authentication .auth-container #left-panel .information-container .description h1 {
@@ -193,17 +196,6 @@ body,
   margin: 0;
 }
 
-.login-container .sep,
-.register-container .sep {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-item-align: center;
-      align-self: center;
-  width: 80%;
-  border: 1px solid #d4d4d4;
-}
-
 .login-container .form,
 .register-container .form {
   display: -webkit-box;
@@ -244,5 +236,137 @@ body,
   text-align: center;
   color: #2a9d8f;
   text-decoration: none;
+}
+
+.dashboard-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.dashboard-container .header-dash {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+  min-height: 62px;
+  background-color: #e76f51;
+}
+
+.dashboard-container .header-dash a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+  margin: 0.8em;
+}
+
+.dashboard-container .header-dash a img {
+  height: 35px;
+}
+
+.dashboard-container .header-dash a label {
+  margin-left: 10px;
+  font-size: 20px;
+  color: white;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.dashboard-container .header-dash a label:hover {
+  cursor: pointer;
+}
+
+.dashboard-container .header-dash nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  padding: 1em;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard-container .dashboard-content {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 62px;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.dashboard-container .dashboard-content .project-navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 240px;
+          flex: 0 0 240px;
+  background-color: #a8dadc36;
+}
+
+.dashboard-container .dashboard-content .project-navigation h1 {
+  margin: 0 0 1em;
+  font-size: 20px;
+  color: #264653;
+}
+
+.dashboard-container .dashboard-content .project-navigation nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard-container .dashboard-content .project-navigation nav a {
+  text-decoration: none;
+  color: #264653;
+  margin: 0.5em 0;
+}
+
+.dashboard-container .dashboard-content .SongLibrary {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding: 2em;
+}
+
+.sep {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 100%;
+  border: 1px solid #d4d4d4;
 }
 /*# sourceMappingURL=App.css.map */
