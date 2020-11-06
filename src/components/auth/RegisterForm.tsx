@@ -6,10 +6,14 @@ import {
 } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
-
 import { useMutation } from "urql";
-
 import { REGISTER_MUTATION } from "../../urql/mutations";
+
+
+interface initValues  {
+  
+}
+
 
 function RegisterForm() {
   const [, register] = useMutation(REGISTER_MUTATION);
@@ -29,7 +33,7 @@ function RegisterForm() {
             password: ""
           }}
           validate={(values) => {
-            const errors = {};
+            const errors:any = {};
             if (!values.username) {
               errors.email = "Required";
             }
