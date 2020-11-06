@@ -1,9 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+import {
+  Button,
+  LinearProgress,
+} from "@material-ui/core";
+import { Formik, Form, Field } from "formik";
+import { TextField } from "formik-material-ui";
+
+import { useMutation } from "urql";
+
+import { REGISTER_MUTATION } from "../../urql/mutations";
 
 function RegisterForm() {
+  const [, register] = useMutation(REGISTER_MUTATION);
+
   return (
     <div className="register-container">
       <div className="title">
@@ -13,55 +23,161 @@ function RegisterForm() {
       </div>
 
       <div className="form">
-        <TextField
-          id="filled-full-width"
-          label="Username"
-          style={{ margin: "1em 0" }}
-          placeholder=""
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
+        <Formik
+          initialValues={{
+            username: "",
+            password: ""
           }}
-          variant="outlined"
-        />
-        <TextField
-          id="filled-full-width"
-          label="Password"
-          style={{ margin: "1em 0" }}
-          placeholder=""
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
+          validate={(values) => {
+            const errors = {};
+            if (!values.username) {
+              errors.email = "Required";
+            }
+            if(!values.password ){
+              errors.password = "Required"
+            }else if(values.password.length < 5){
+              errors.password = "Password must be longer than 5 characters"
+            }
+
+
+            // if(!values.confirmPassword){
+            //   errors.confirmPassword = "Required"
+            // }else if(values.confirmPassword.length < 5){
+            //   errors.confirmPassword = "Password must be longer than 5 characters"
+            // }
+
+            return errors;
           }}
-          variant="outlined"
-        />
-        <TextField
-          id="filled-full-width"
-          label="Confirm Password"
-          style={{ margin: "1em 0" }}
-          placeholder=""
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(async () => {
+              setSubmitting(false);
+              console.log(values);
+              await register(values)
+              // alert(JSON.stringify(values, null, 2));
+            }, 500);
           }}
-          variant="outlined"
-        />
-        <div className="button-group">
-          <Button
-            variant="contained"
-            color="primary"
-            style={{ background: "#2a9d8f" }}
-          >
-            Register
-          </Button>
-          <Link to={`/authentication/login`}>Already have an account? Login Here!</Link>
-        </div>
+        >
+          {({ submitForm, isSubmitting }) => (
+            <Form>
+              <Field
+                component={TextField}
+                name="username"
+                type="text"
+                label="Username"
+                style={{ margin: "1em 0" }}
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+              <br />
+              <Field
+                component={TextField}
+                type="password"
+                name="password"
+                id="filled-full-width"
+                label="Password"
+                style={{ margin: "1em 0" }}
+                placeholder=""
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+              <Field
+                component={TextField}
+                type="password"
+                name="confirmPassword"
+                id="filled-full-width"
+                label="Confirm Password"
+                style={{ margin: "1em 0" }}
+                placeholder=""
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+
+              
+              <br />
+              <div className="button-group">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  style={{ background: "#2a9d8f" }}
+                  disabled={isSubmitting}
+                  onClick={submitForm}
+                >
+                  Register
+                </Button>
+                <Link to={`/authentication/login`}>
+                  Already have an account? Login Here!
+                </Link>
+              </div>
+              {isSubmitting && <LinearProgress />}
+            </Form>
+          )}
+        </Formik>
       </div>
     </div>
   );
 }
 
 export default RegisterForm;
+
+/* <FormControl>
+<TextField
+  id="filled-full-width"
+  label="Username"
+  style={{ margin: "1em 0" }}
+  placeholder="
+  fullWidth
+  margin="normal"
+  InputLabelProps={{
+    shrink: true,
+  }}
+  variant="outlined"
+/>
+<TextField
+  id="filled-full-width"
+  label="Password"
+  style={{ margin: "1em 0" }}
+  placeholder=""
+  fullWidth
+  margin="normal"
+  InputLabelProps={{
+    shrink: true,
+  }}
+  variant="outlined"
+/>
+<TextField
+  id="filled-full-width"
+  label="Confirm Password"
+  style={{ margin: "1em 0" }}
+  placeholder=""
+  fullWidth
+  margin="normal"
+  InputLabelProps={{
+    shrink: true,
+  }}
+  variant="outlined"
+/>
+<div className="button-group">
+  <Button
+    variant="contained"
+    color="primary"
+    style={{ background: "#2a9d8f" }}
+  >
+    Register
+  </Button>
+  <Link to={`/authentication/login`}>
+    Already have an account? Login Here!
+  </Link>
+</div>
+</FormControl> */

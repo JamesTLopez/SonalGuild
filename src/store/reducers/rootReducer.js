@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import tempReducer from './tempReducer';
+import userReducer from './userReducer';
 
 export default combineReducers({
-    temp:tempReducer
+    User:userReducer
 })

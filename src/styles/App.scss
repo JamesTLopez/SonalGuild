@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 @import "./variables";
 @import "./animations";
 
@@ -14,7 +14,6 @@ body,
   scroll-behavior: smooth;
   font-family: "Bree Serif", serif;
 }
-
 
 //AUTHENTICATION SCSS
 .authentication {
@@ -92,7 +91,7 @@ body,
       }
     }
     @media (min-width: 510px) {
-      min-width: 770px;
+      min-width: 670px;
     }
   }
 }
@@ -148,6 +147,7 @@ body,
   flex-direction: column;
   overflow-x: hidden;
   width: 100%;
+  
 
   //HEADER DASHBOARD
   .header-dash {
@@ -191,110 +191,191 @@ body,
     left: 0px;
     right: 0px;
     bottom: 0px;
+    font-family: 'Roboto Condensed', sans-serif;
     .project-navigation {
       display: flex;
       padding: 1em;
       flex-direction: column;
       flex: 0 0 240px;
       background-color: $skyblue;
-      h1{
+      h1 {
         margin: 0 0 1em;
         font-size: 20px;
-        color:$darkgreen;
+        color: $darkgreen;
       }
-      nav{
+      nav {
         display: flex;
         flex-direction: column;
-        a{
+        a {
           text-decoration: none;
-          color:$darkgreen;
+          color: $darkgreen;
           margin: 0.5em 0;
         }
       }
     }
     .SongLibrary {
+      
       display: flex;
+      position: relative;
       flex-direction: column;
       flex: 1 1 auto;
       padding: 2em;
-
-      .title-container{
-        display:flex;
+      animation: fadeInVertical 0.5s;
+      .title-container {
+        display: flex;
         background-color: $skyblue;
-        margin: 0.7em;
+        margin: 0.7em 0;
+        padding:0.2em;
         border-radius: 2px;
-        h1{
-          flex:1;
-          color:$darkgreen;
+        h1 {
+          flex: 1;
+          color: $darkgreen;
           font-size: 25px;
           margin: 0 0 0 1em;
         }
-
       }
-      .song-list{
+      .song-list {
         display: flex;
         flex-direction: column;
         padding: 0.7em;
         margin-top: 1em;
         display: flex;
-        .song-header{
+        .song-header {
           display: flex;
           width: 100%;
           border-bottom: 2px solid rgba(128, 128, 128, 0.267);
-          h3{
+          h3 {
             margin: 0.5em;
             font-size: 18px;
           }
-          #half{
-            flex:2;
+          #half {
+            flex: 2;
           }
-          #quarter{
-            flex:1;
+          #quarter {
+            flex: 1;
           }
-
-
         }
-        .list{
+        .list {
           display: flex;
           width: 100%;
           border-bottom: 2px solid rgba(128, 128, 128, 0.267);
-          h3{
+          h3 {
             display: flex;
             align-items: center;
             margin: 0.5em;
             font-size: 17px;
             opacity: 0.7;
           }
-          a{
+          a {
             text-decoration: none;
-            color:$darkgreen;
+            color: $darkgreen;
             margin: 0;
             padding: 0;
             margin: 0.5em;
           }
-          #half{
-            flex:2;
+          #half {
+            flex: 2;
           }
-          #quarter{
-            flex:1;
+          #quarter {
+            flex: 1;
           }
 
-          &:hover{
+          &:hover {
             background-color: $skyblue;
           }
-
-
         }
       }
-   
-
     }
   }
 }
 
+//FIREPAD MAIN COMPONENT
 
+.song-container{
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+  .top{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    background-color: $redsun;
+    width: 100%;
+    height: 62px;
+    top:0;
+    a{
+      margin-left:10px;
+      display: flex;
+      align-items: center;
+      color:white;
+      text-decoration: none;
+      span{
+        margin-left: 10px;
+      }
+    }
 
+  }
+  .song-toolbar{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top:62px;
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.568);
 
+    .firepad-controller{
+      display: flex;
+      width: auto;
+      .Key-controller{
+        display: flex;
+        align-items: center;
+        padding: 0 0.5em;
+        color:rgba(0, 0, 0, 0.603);
+        label{
+          
+          font-size: 13px;
+        }
+        .key-display{
+          border: 1px solid rgba(128, 128, 128, 0.404);
+          font-size: 15px;
+          border-radius: 5px;
+          margin: 0.5em;
+          padding: 0 0.3em;
+        }
+      }
+      .Transpose-controller{
+        display: flex;
+        align-items: center;
+        padding: 0 0.5em;
+        color:rgba(0, 0, 0, 0.603);
+        label{
+          
+          font-size: 13px;
+        }
+        .button-group{
+          display: flex;
+          align-items: center;
+          margin-left: 5px;
+          height: 100%;
+          button{
+            border: none;
+            height: 100%;
+            width: 50px;
+            background-color: white;
+            &:hover{
+              background-color: rgb(197, 197, 197);
+            }
+          }
+        }
+      }
+
+    }
+ 
+
+  }
+}
 
 
 
@@ -308,3 +389,29 @@ body,
   border: 1px solid #d4d4d4;
 }
 
+.sep-vertical{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  height: 50%;
+  border: 0.1px solid #d4d4d4;
+}
+
+.center{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  h1,h2, h3{
+    margin: 0;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    input{
+      margin: 1em 0;
+      height:2em;
+    }
+  }
+}
