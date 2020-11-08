@@ -496,6 +496,7 @@ body,
 }
 
 .song-container {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -505,6 +506,9 @@ body,
           flex-direction: column;
   overflow-x: hidden;
   width: 100%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }
 
 .song-container .top {
@@ -616,6 +620,49 @@ body,
 
 .song-container .song-toolbar .firepad-controller .Transpose-controller .button-group button:hover {
   background-color: #c5c5c5;
+}
+
+.song-container .lyric-container {
+  position: fixed;
+  top: 108px;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.song-container .lyric-container .lyric-textarea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.song-container .lyric-container .lyric-textarea .theory {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: red;
+  width: 400px;
+}
+
+.song-container .lyric-container .lyric-textarea .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.song-container .lyric-container .lyric-textarea .text .quill {
+  width: 80vh;
+  height: 80vh;
 }
 
 .sep {

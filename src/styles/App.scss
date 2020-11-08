@@ -292,10 +292,14 @@ body,
 //FIREPAD MAIN COMPONENT
 
 .song-container{
+  position: relative;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   width: 100%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
   .top{
     position: fixed;
     display: flex;
@@ -374,6 +378,39 @@ body,
     }
  
 
+  }
+
+  .lyric-container{
+    position: fixed;
+    top:108px;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    
+    .lyric-textarea{
+      display: flex;
+      height: 100%;
+
+      .theory{
+        display: flex;
+        flex-direction: column;
+        background-color: red;
+        width: 400px;
+      }
+
+      .text{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        .quill{
+          width: 80vh;
+          height: 80vh;
+        }
+      }
+    
+
+    }
   }
 }
 

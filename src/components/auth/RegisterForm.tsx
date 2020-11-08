@@ -10,9 +10,13 @@ import { useMutation } from "urql";
 import { REGISTER_MUTATION } from "../../urql/mutations";
 
 
-interface initValues  {
+interface Values  {
+  email?: string;
+  password?: string;
   
 }
+
+
 
 
 function RegisterForm() {
@@ -30,32 +34,32 @@ function RegisterForm() {
         <Formik
           initialValues={{
             username: "",
-            password: ""
+            password: "",
+            confirmPassword:""
           }}
-          validate={(values) => {
-            const errors:any = {};
+          validate={(values):Values => {
+            let errors:any = {};
+       
             if (!values.username) {
-              errors.email = "Required";
+              errors.username = "Required";
             }
-            if(!values.password ){
+
+            if(!values.password){
               errors.password = "Required"
             }else if(values.password.length < 5){
               errors.password = "Password must be longer than 5 characters"
+            }else if(values.password !== values.confirmPassword){
+              errors.password = "Passwords must be equal"
+              errors.confirmPassword = "Passwords must be equal"
             }
 
-
-            // if(!values.confirmPassword){
-            //   errors.confirmPassword = "Required"
-            // }else if(values.confirmPassword.length < 5){
-            //   errors.confirmPassword = "Password must be longer than 5 characters"
-            // }
-
+            
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(async () => {
               setSubmitting(false);
-              console.log(values);
+              console.log(values)
               await register(values)
               // alert(JSON.stringify(values, null, 2));
             }, 500);
