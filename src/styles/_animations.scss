@@ -9,6 +9,19 @@
   }
 }
 
+
+@keyframes fadeInLeft {
+  from {
+    left: -15px;
+    opacity: 0;
+  }
+  to {
+    left: 0px;
+    opacity: 1;
+  }
+}
+
+
 @keyframes fadeInVertical {
   from {
     top: -10px;

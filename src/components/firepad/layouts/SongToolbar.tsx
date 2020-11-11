@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useState} from "react";
+
 
 function SongToolbar() {
+
   return (
     <div className="song-toolbar">
       <div className="firepad-controller">
