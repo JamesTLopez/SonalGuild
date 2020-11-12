@@ -1,8 +1,16 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import { useQuery } from 'urql';
+import {FIND_POSTS} from '../../urql/queries';
 
 function SongLibrary() {
+
+  const [result, reexecuteQuery] = useQuery({
+    query: FIND_POSTS,
+  });
+  console.log(result.data);
+
   return (
     <div className="SongLibrary">
       <div className="title">

@@ -768,7 +768,8 @@ body,
 
 .song-container .lyric-container .lyric-textarea .theory .key .key-container .item-list .right-panel p {
   margin: 5px 0;
-  color: rgba(0, 0, 0, 0.644);
+  color: #51afee;
+  cursor: pointer;
 }
 
 .song-container .lyric-container .lyric-textarea .text {
