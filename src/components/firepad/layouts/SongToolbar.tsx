@@ -1,8 +1,6 @@
-import React,{useState} from "react";
-
+import React, { useState } from "react";
 
 function SongToolbar() {
-
   return (
     <div className="song-toolbar">
       <div className="firepad-controller">
@@ -48,10 +46,13 @@ function SongToolbar() {
             </button>
           </div>
         </div>
-      </div>
-      <div className="theory-controller">
+        <button>
         <label>Notes</label>
+        
+        </button>
       </div>
+
+     
     </div>
   );
 }

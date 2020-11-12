@@ -577,6 +577,17 @@ body,
   border-bottom: 1px solid rgba(128, 128, 128, 0.568);
 }
 
+.song-container .song-toolbar button {
+  border: none;
+  height: 100%;
+  width: 50px;
+  background-color: white;
+}
+
+.song-container .song-toolbar button:hover {
+  background-color: #c5c5c5;
+}
+
 .song-container .song-toolbar .firepad-controller {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -631,17 +642,6 @@ body,
           align-items: center;
   margin-left: 5px;
   height: 100%;
-}
-
-.song-container .song-toolbar .firepad-controller .Transpose-controller .button-group button {
-  border: none;
-  height: 100%;
-  width: 50px;
-  background-color: white;
-}
-
-.song-container .song-toolbar .firepad-controller .Transpose-controller .button-group button:hover {
-  background-color: #c5c5c5;
 }
 
 .song-container .lyric-container {

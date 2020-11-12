@@ -2,18 +2,6 @@ import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Scale } from "@tonaljs/tonal";
-import SongToolbar from "./SongToolbar";
-
-// interface Delta {
-//   id:number;
-//   title?: string;
-//   key:string;
-//   content?: string;
-//   createDate?: Date;
-//   isPublished: boolean;
-//   lastModified?: Date;
-//   featureImage?: string;
-// }
 
 function LyricsArea() {
   const [theoryActivated, isActivated] = useState<boolean>(false);
@@ -31,9 +19,68 @@ function LyricsArea() {
 
   return (
     <div className="lyric-container">
-      <SongToolbar />
-      <button onClick={onSumbitLyric}>Click me Dudes!</button>
-      <button onClick={onChangeKey}>Changethe KEY</button>
+      <div className="song-toolbar">
+        <div className="firepad-controller">
+          <button onClick={() => isActivated(!theoryActivated)}>
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 24 24"
+              height="1.5em"
+              width="1.5em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path d="M11.95 7.95l-1.414 1.414L8 6.828 8 20H6V6.828L3.465 9.364 2.05 7.95 7 3l4.95 4.95zm10 8.1L17 21l-4.95-4.95 1.414-1.414 2.537 2.536L16 4h2v13.172l2.536-2.536 1.414 1.414z"></path>
+              </g>
+            </svg>
+          </button>
+          <div className="Key-controller">
+            <label>Key</label>
+            <div className="key-display">C Major</div>
+          </div>
+          <div className="sep-vertical"></div>
+          <div className="Transpose-controller">
+            <label>Transpose</label>
+            <div className="button-group">
+              <button>
+                <svg
+                  stroke="currentColor"
+                  fill="none"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  height="1.5em"
+                  width="1.5em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line x1="12" y1="19" x2="12" y2="5"></line>
+                  <polyline points="5 12 12 5 19 12"></polyline>
+                </svg>
+              </button>
+              <button>
+                <svg
+                  stroke="currentColor"
+                  fill="none"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  height="1.5em"
+                  width="1.5em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="lyric-textarea">
         <div className={!theoryActivated ? "theory" : "displayNone"}>
           <div className="key">
