@@ -339,7 +339,10 @@ body,
       display: flex;
       width: auto;
       .Key-controller {
+        position: absolute;
         display: flex;
+        left:50px;
+        height: 100%;
         align-items: center;
         padding: 0 0.5em;
         color: rgba(0, 0, 0, 0.603);
@@ -347,15 +350,20 @@ body,
           font-size: 13px;
         }
         .key-display {
+          text-align: center;
           border: 1px solid rgba(128, 128, 128, 0.404);
           font-size: 15px;
+          width: 70px;
           border-radius: 5px;
           margin: 0.5em;
           padding: 0 0.3em;
         }
       }
       .Transpose-controller {
+        position: absolute;
+        left:165px;
         display: flex;
+        height: 100%;
         align-items: center;
         padding: 0 0.5em;
         color: rgba(0, 0, 0, 0.603);
