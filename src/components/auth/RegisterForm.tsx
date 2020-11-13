@@ -1,23 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  LinearProgress,
-} from "@material-ui/core";
+import { Button, LinearProgress } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import { useMutation } from "urql";
 import { REGISTER_MUTATION } from "../../urql/mutations";
 
-
-interface Values  {
+interface Values {
   email?: string;
   password?: string;
-  
 }
-
-
-
 
 function RegisterForm() {
   const [, register] = useMutation(REGISTER_MUTATION);
@@ -35,32 +27,31 @@ function RegisterForm() {
           initialValues={{
             username: "",
             password: "",
-            confirmPassword:""
+            confirmPassword: "",
           }}
-          validate={(values):Values => {
-            let errors:any = {};
-       
+          validate={(values): Values => {
+            let errors: any = {};
+
             if (!values.username) {
               errors.username = "Required";
             }
 
-            if(!values.password){
-              errors.password = "Required"
-            }else if(values.password.length < 5){
-              errors.password = "Password must be longer than 5 characters"
-            }else if(values.password !== values.confirmPassword){
-              errors.password = "Passwords must be equal"
-              errors.confirmPassword = "Passwords must be equal"
+            if (!values.password) {
+              errors.password = "Required";
+            } else if (values.password.length < 5) {
+              errors.password = "Password must be longer than 5 characters";
+            } else if (values.password !== values.confirmPassword) {
+              errors.password = "Passwords must be equal";
+              errors.confirmPassword = "Passwords must be equal";
             }
 
-            
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(async () => {
               setSubmitting(false);
-              console.log(values)
-              await register(values)
+              console.log(values);
+              await register(values);
               // alert(JSON.stringify(values, null, 2));
             }, 500);
           }}
@@ -112,7 +103,6 @@ function RegisterForm() {
                 variant="outlined"
               />
 
-              
               <br />
               <div className="button-group">
                 <Button

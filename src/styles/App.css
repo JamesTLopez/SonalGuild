@@ -863,4 +863,92 @@ body,
   margin: 1em 0;
   height: 2em;
 }
+
+/* The Modal (background) */
+.modal {
+  /* Hidden by default */
+  display: none;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.568);
+  /* Black w/ opacity */
+  -webkit-animation: fadeInVertical 0.2s;
+          animation: fadeInVertical 0.2s;
+}
+
+.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #e76f51;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.377);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.377);
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 30px;
+  border: 1px solid #888;
+  width: 550px;
+  height: 300px;
+}
+
+.modal-content h1 {
+  margin: 0;
+  color: white;
+}
+
+.modal-content .close {
+  position: absolute;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.modal-content .close:hover {
+  cursor: pointer;
+}
+
+.modal-content .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.modal-content .form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
 /*# sourceMappingURL=App.css.map */

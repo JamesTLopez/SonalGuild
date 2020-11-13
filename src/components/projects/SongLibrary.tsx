@@ -1,28 +1,26 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
+import React, { useState } from "react";
 import Lists from "./Lists";
-import { useQuery,useMutation } from 'urql';
-import {FIND_POSTS} from '../../urql/queries';
-import {CREATE_SONG} from '../../urql/mutations';
+import { useQuery } from "urql";
+import { FIND_POSTS } from "../../urql/queries";
+import { Button } from "@material-ui/core";
+import CreatePostForm from "./CreatePostForm";
+
 
 function SongLibrary() {
-
-  const [result, ] = useQuery({
+  const [showModal, setModal] = useState<boolean>(false);
+  const [result] = useQuery({
     query: FIND_POSTS,
   });
-
-  const [updateSongResult, updateSong] = useMutation(CREATE_SONG);
   const { data, fetching, error } = result;
 
-  const createPost = () => {
-    const newLyric = {title:"From client",owner:'DasJames'};
-    updateSong(newLyric).then((result) => console.log(result));
-  }
+  const displayModal = () => {
+    setModal(!showModal);
 
+  };
 
   if (fetching) return <p>Loading...</p>;
   if (error) return <p>Oh no... {error.message}</p>;
-  // console.log(data)
+
 
   return (
     <div className="SongLibrary">
@@ -33,7 +31,7 @@ function SongLibrary() {
             variant="contained"
             color="primary"
             style={{ background: "#264653", marginRight: "1em" }}
-            onClick={createPost}
+            onClick={displayModal}
           >
             New Song
           </Button>
@@ -44,12 +42,27 @@ function SongLibrary() {
             <h3 id="quarter">Owner</h3>
             <h3 id="quarter">Date</h3>
           </div>
-          {data.posts.map((post:any) => (
-            <Lists key={post.id} title={post.title} owner={post.owner} createdAt={post.createdAt}/>
+          {data.posts.map((post: any) => (
+            <Lists
+              key={post.id}
+              title={post.title}
+              owner={post.owner}
+              createdAt={post.createdAt}
+            />
           ))}
         </div>
       </div>
       <div className="songlist"></div>
+
+      <div
+        id="myModal"
+        className={showModal ? "show modal" : "modal "}
+      >
+        <div className="modal-content">
+          <span className="close" onClick={displayModal}>&times;</span>
+          <CreatePostForm/>
+        </div>
+      </div>
     </div>
   );
 }
