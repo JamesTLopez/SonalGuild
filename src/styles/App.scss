@@ -434,12 +434,18 @@ body,
                 flex-direction: column;
                 align-items: center;
                 flex: 1 1 50% !important;
-
+                .note{
+                  margin: 5px 0;
+                  color: rgb(81, 175, 238);
+                  cursor: pointer;
+                }
                 p{
                   margin: 5px 0;
                   color: rgb(81, 175, 238);
                   cursor: pointer;
-        
+                  &:target{
+                    color:red;
+                  }
                 }
               }
             }
@@ -451,6 +457,7 @@ body,
       .text {
         display: flex;
         justify-content: center;
+        padding: 10px;
         width: 100%;
 
         .quill {

@@ -13,3 +13,13 @@ export const REGISTER_MUTATION = `mutation Register($username:String!,$password:
     }
   }
   `;
+
+  export const CREATE_SONG = `
+  mutation Createpost($title:String!,$owner:String! ){
+    createPost(title:$title,owner:$owner){
+      id,
+      title,
+      createdAt
+      updatedAt
+  }
+  }`

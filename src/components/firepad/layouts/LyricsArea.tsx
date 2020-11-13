@@ -3,19 +3,33 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Scale } from "@tonaljs/tonal";
 
+
 function LyricsArea() {
   const [theoryActivated, isActivated] = useState<boolean>(false);
-  const [currentKey, setKey] = useState(Scale.get("G major"));
+  const [currentKey] = useState(Scale.get("G major"));
   const [value, setValue] = useState("");
 
-  const onSumbitLyric = () => {
-    console.log(Scale.get("C major"));
-    isActivated(!theoryActivated);
-  };
 
-  const onChangeKey = () => {
-    console.log(currentKey);
-  };
+  function drop(event:any) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData("Text");
+    console.log(data)
+  }
+
+  function changeKey(key:string){
+    switch(key){
+      case "UP":
+        console.log("transpose up");
+        
+        break;
+      case "DOWN":
+        console.log("transpose down");
+        break;
+      default:
+        console.log('error')
+    }
+
+  }
 
   return (
     <div className="lyric-container">
@@ -45,7 +59,7 @@ function LyricsArea() {
           <div className="Transpose-controller">
             <label>Transpose</label>
             <div className="button-group">
-              <button>
+              <button onClick={()=>changeKey("UP")}>
                 <svg
                   stroke="currentColor"
                   fill="none"
@@ -61,7 +75,7 @@ function LyricsArea() {
                   <polyline points="5 12 12 5 19 12"></polyline>
                 </svg>
               </button>
-              <button>
+              <button onClick={()=>changeKey("DOWN")}>
                 <svg
                   stroke="currentColor"
                   fill="none"
@@ -100,13 +114,17 @@ function LyricsArea() {
                 <div className="vert-sep"></div>
                 <div className="right-panel">
                   {currentKey.notes.map((note, index) => (
-                    <p key={index}>{note}</p>
+                    <div className="note" draggable={true} onDragStart={(event:any)=>console.log(event)} key={index}>
+                      {note}
+                    </div>
                   ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <textarea onDrop={drop} onDragOver={(event:any)=>event.preventDefault()}></textarea>
+
         <div className="text">
           <ReactQuill value={value} theme="snow" onChange={setValue} />
         </div>

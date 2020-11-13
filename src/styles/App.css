@@ -766,10 +766,20 @@ body,
           flex: 1 1 50% !important;
 }
 
+.song-container .lyric-container .lyric-textarea .theory .key .key-container .item-list .right-panel .note {
+  margin: 5px 0;
+  color: #51afee;
+  cursor: pointer;
+}
+
 .song-container .lyric-container .lyric-textarea .theory .key .key-container .item-list .right-panel p {
   margin: 5px 0;
   color: #51afee;
   cursor: pointer;
+}
+
+.song-container .lyric-container .lyric-textarea .theory .key .key-container .item-list .right-panel p:target {
+  color: red;
 }
 
 .song-container .lyric-container .lyric-textarea .text {
@@ -779,6 +789,7 @@ body,
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 10px;
   width: 100%;
 }
 

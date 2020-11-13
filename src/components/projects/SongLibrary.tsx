@@ -1,20 +1,28 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import Lists from "./Lists";
-import { useQuery } from 'urql';
+import { useQuery,useMutation } from 'urql';
 import {FIND_POSTS} from '../../urql/queries';
+import {CREATE_SONG} from '../../urql/mutations';
 
 function SongLibrary() {
 
-  const [result, reexecuteQuery] = useQuery({
+  const [result, ] = useQuery({
     query: FIND_POSTS,
   });
+
+  const [updateSongResult, updateSong] = useMutation(CREATE_SONG);
   const { data, fetching, error } = result;
+
+  const createPost = () => {
+    const newLyric = {title:"From client",owner:'DasJames'};
+    updateSong(newLyric).then((result) => console.log(result));
+  }
 
 
   if (fetching) return <p>Loading...</p>;
   if (error) return <p>Oh no... {error.message}</p>;
-  console.log(data)
+  // console.log(data)
 
   return (
     <div className="SongLibrary">
@@ -25,6 +33,7 @@ function SongLibrary() {
             variant="contained"
             color="primary"
             style={{ background: "#264653", marginRight: "1em" }}
+            onClick={createPost}
           >
             New Song
           </Button>
