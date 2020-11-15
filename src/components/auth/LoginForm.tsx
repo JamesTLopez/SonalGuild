@@ -50,7 +50,7 @@ function LoginForm() {
               let res = await login(values);
  
               // alert(JSON.stringify(values, null, 2));
-              // history.push('/dashboard')
+              history.push('/dashboard')
             }, 500);
           }}
         >
