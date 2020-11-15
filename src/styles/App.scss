@@ -152,6 +152,7 @@ body,
   .header-dash {
     display: flex;
     position: relative;
+    align-items: center;
     width: 100%;
     min-height: $header-height;
     background-color: $redsun;
@@ -179,6 +180,21 @@ body,
       padding: 1em;
       justify-content: flex-end;
       align-items: center;
+
+      h1{
+        font-size: 22px;
+        color: white;
+        margin: 0 20px 0 0;
+      }
+      button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-size: 22px;
+        font-family: "Bree Serif", serif;
+        color: white;
+      }
     }
   }
 

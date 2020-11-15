@@ -1,21 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ShieldLogo } from "../../images/imageList";
+import { Button } from "@material-ui/core";
 import { useQuery } from "urql";
-import {ME_QUERY} from "../../urql/queries";
+import { ME_QUERY } from "../../urql/queries";
 
-function HeaderDash() {
+
+
+interface props {
+  username?:string;
+}
+
+const HeaderDash: React.FC<props> = ({username}) => {
   const [result] = useQuery({
     query: ME_QUERY,
-   
   });
-
+  
   const { data, fetching, error } = result;
 
-  if (fetching) return <p>Loading...</p>;
+  if (fetching){
+    return <p>Loading...</p>;
+  }
   if (error) return <p>Oh no... {error.message}</p>;
 
-  console.log(data);
 
 
   return (
@@ -24,11 +31,14 @@ function HeaderDash() {
         <img src={ShieldLogo} alt="Shield Logo" />
         <label>SONALS GUILD</label>
       </Link>
+      {data?.me ?
       <nav>
-        <div>
-            
-        </div>
-      </nav>
+        <h1>{username}</h1>
+        <Button>Logout</Button>
+      </nav>:<nav>
+        <Button>Register</Button>
+        <Button>Login</Button>
+        </nav>}
     </header>
   );
 }
