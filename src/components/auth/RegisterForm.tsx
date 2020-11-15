@@ -51,7 +51,8 @@ function RegisterForm() {
             setTimeout(async () => {
               setSubmitting(false);
               console.log(values);
-              await register(values);
+              let res = await register(values);
+              console.log(res);
               // alert(JSON.stringify(values, null, 2));
             }, 500);
           }}

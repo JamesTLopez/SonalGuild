@@ -6,3 +6,11 @@ export const FIND_POSTS = `{
       createdAt
     }
   }`;
+
+
+export const ME_QUERY =  `{
+  me{
+    id
+    username
+  }
+}`

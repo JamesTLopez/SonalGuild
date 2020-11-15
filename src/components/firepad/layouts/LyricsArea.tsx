@@ -1,10 +1,23 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { Scale, Note, Key ,Interval} from "@tonaljs/tonal";
+import { Scale, Key } from "@tonaljs/tonal";
 
 function LyricsArea() {
-  const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]; 
+  const NOTES = [
+    "C",
+    "C#",
+    "D",
+    "D#",
+    "E",
+    "F",
+    "F#",
+    "G",
+    "G#",
+    "A",
+    "A#",
+    "B",
+  ];
   const [tempState, setTemp] = useState<any>({
     key: "C",
     chord: Key.majorKey("C"),
@@ -12,43 +25,40 @@ function LyricsArea() {
     type: "major",
   });
 
-
   const [theoryActivated, isActivated] = useState<boolean>(false);
   const [value, setValue] = useState("");
-
 
   function changeKey(key: string) {
     switch (key) {
       case "UP":
-        let index = NOTES.indexOf(tempState.key) ;
+        let index = NOTES.indexOf(tempState.key);
         let newKey = NOTES[index + 1];
-        
-        if(newKey === undefined){
+
+        if (newKey === undefined) {
           newKey = NOTES[0];
         }
- 
+
         setTemp({
           key: newKey,
           chord: Key.majorKey(newKey),
           scale: Scale.get(`${newKey} ` + tempState.type),
-          type:"major"
+          type: "major",
         });
-
+        console.log(tempState);
         break;
       case "DOWN":
-
-        let indexs = NOTES.indexOf(tempState.key) ;
+        let indexs = NOTES.indexOf(tempState.key);
         let newKeys = NOTES[indexs - 1];
 
-        if(newKeys === undefined){
+        if (newKeys === undefined) {
           newKeys = NOTES[11];
         }
- 
+
         setTemp({
           key: newKeys,
           chord: Key.majorKey(newKeys),
           scale: Scale.get(`${newKeys} ` + tempState.type),
-          type:"major"
+          type: "major",
         });
 
         break;
@@ -139,7 +149,7 @@ function LyricsArea() {
                 </div>
                 <div className="vert-sep"></div>
                 <div className="right-panel">
-                  {tempState.scale.notes.map((note: string, index: number) => (
+                  {tempState.chord.chords.map((note: string, index: number) => (
                     <div
                       className="note"
                       draggable={true}

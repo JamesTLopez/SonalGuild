@@ -14,7 +14,7 @@ export const REGISTER_MUTATION = `mutation Register($username:String!,$password:
   }
   `;
 
-  export const CREATE_SONG = `
+export const CREATE_SONG = `
   mutation Createpost($title:String!,$owner:String! ){
     createPost(title:$title,owner:$owner){
       id,
@@ -22,4 +22,17 @@ export const REGISTER_MUTATION = `mutation Register($username:String!,$password:
       createdAt
       updatedAt
   }
-  }`
+  }`;
+
+export const LOGIN_MUTATION = `mutation Login($username:String!,$password:String!){
+  login(options:{username:$username,password:$password}){
+    errors{
+      field
+      message
+    }
+    user{
+      id
+      username
+    }
+  }
+}`
