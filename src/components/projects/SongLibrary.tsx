@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Lists from "./Lists";
 import { useQuery } from "urql";
-import { FIND_POSTS ,ME_QUERY} from "../../urql/queries";
+import { FIND_POSTS } from "../../urql/queries";
 import { Button } from "@material-ui/core";
 import CreatePostForm from "./CreatePostForm";
 

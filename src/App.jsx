@@ -16,9 +16,8 @@ const client = createClient({
         login: (result, args, cache, info) => {
           cache.updateQuery({query:ME_QUERY},data => {
             console.log(data)
-            
-            console.log(result)
-            return {...data,me:result.login.user};})
+            return {...data,me:result.login.user};
+          })
         },
       },
     }

@@ -47,7 +47,7 @@ function LoginForm() {
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(async () => {
               setSubmitting(false);
-              let res = await login(values);
+              await login(values);
  
               // alert(JSON.stringify(values, null, 2));
               history.push('/dashboard')

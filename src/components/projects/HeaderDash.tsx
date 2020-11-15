@@ -2,20 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ShieldLogo } from "../../images/imageList";
 import { Button } from "@material-ui/core";
-import { useQuery } from "urql";
+import { useQuery,useMutation } from "urql";
 import { ME_QUERY } from "../../urql/queries";
-
-
+import {LOGOUT_MUTATION} from "../../urql/mutations";
+import { useHistory} from "react-router-dom";
 
 interface props {
   username?:string;
 }
 
 const HeaderDash: React.FC<props> = ({username}) => {
+
+  const history = useHistory();
+
+
   const [result] = useQuery({
     query: ME_QUERY,
   });
-  
+  const [, logout] = useMutation(LOGOUT_MUTATION);
   const { data, fetching, error } = result;
 
   if (fetching){
@@ -34,7 +38,10 @@ const HeaderDash: React.FC<props> = ({username}) => {
       {data?.me ?
       <nav>
         <h1>{username}</h1>
-        <Button>Logout</Button>
+        <Button onClick={()=>{
+          logout()
+          history.push("/authentication/login");
+          }}>Logout</Button>
       </nav>:<nav>
         <Button>Register</Button>
         <Button>Login</Button>

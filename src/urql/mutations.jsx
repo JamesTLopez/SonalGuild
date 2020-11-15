@@ -36,3 +36,7 @@ export const LOGIN_MUTATION = `mutation Login($username:String!,$password:String
     }
   }
 }`
+
+export const LOGOUT_MUTATION =`mutation{
+  logout
+}`
