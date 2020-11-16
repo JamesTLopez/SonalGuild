@@ -15,8 +15,9 @@ function LoginForm() {
   let history = useHistory();
   const [, login] = useMutation(LOGIN_MUTATION);
 
-
+ 
   return (
+    
     <div className="login-container">
       <div className="title">
         <h1>START YOUR SONG WRITING! </h1>

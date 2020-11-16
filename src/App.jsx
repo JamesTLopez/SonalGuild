@@ -11,8 +11,15 @@ const client = createClient({
   url: "http://localhost:4000/graphql",
   fetchOptions: { credentials: "include" },
   exchanges: [dedupExchange, cacheExchange({
+    //updates the cache after making requests
     updates: {
       Mutation: {
+        logout: (result, args, cache, info) => {
+          cache.updateQuery({query:ME_QUERY},data => {
+            console.log(data)
+            return {...data,me:null };
+          })
+        },
         login: (result, args, cache, info) => {
           cache.updateQuery({query:ME_QUERY},data => {
             console.log(data)

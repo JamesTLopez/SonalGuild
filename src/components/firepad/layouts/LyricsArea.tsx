@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Scale, Key } from "@tonaljs/tonal";
@@ -27,6 +27,7 @@ function LyricsArea() {
 
   const [theoryActivated, isActivated] = useState<boolean>(false);
   const [value, setValue] = useState("");
+
 
   function changeKey(key: string) {
     switch (key) {
@@ -153,7 +154,10 @@ function LyricsArea() {
                     <div
                       className="note"
                       draggable={true}
-                      onDragStart={(event: any) => console.log(event)}
+                      onDragStart={(event: any) => {
+                        console.log(event.dataTransfer.setData("text/plain", event.target.innerText))
+                        console.log(event.dataTransfer)
+                      }}
                       key={index}
                     >
                       {note}
