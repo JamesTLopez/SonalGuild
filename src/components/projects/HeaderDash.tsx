@@ -43,8 +43,8 @@ const HeaderDash: React.FC<props> = ({username}) => {
           history.push("/authentication/login");
           }}>Logout</Button>
       </nav>:<nav>
-        <Button>Register</Button>
-        <Button>Login</Button>
+        <Button onClick={() => history.push('/authentication/register')}>Register</Button>
+        <Button onClick={() => history.push('/authentication/login')}>Login</Button>
         </nav>}
     </header>
   );
