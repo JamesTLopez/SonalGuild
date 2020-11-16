@@ -44,14 +44,14 @@ function SongLibrary() {
         <div className="song-list">
           <div className="song-header">
             <h3 id="half">Name</h3>
-            <h3 id="quarter">Owner</h3>
+            <h3 id="quarter">Description</h3>
             <h3 id="quarter">Date</h3>
           </div>
           {data.posts.map((post: any) => (
             <Lists
               key={post.id}
               title={post.title}
-              owner={post.owner}
+              owner={post.creatorId}
               createdAt={post.createdAt}
             />
           ))}

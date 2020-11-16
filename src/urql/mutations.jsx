@@ -14,15 +14,15 @@ export const REGISTER_MUTATION = `mutation Register($username:String!,$password:
   }
   `;
 
-export const CREATE_SONG = `
-  mutation Createpost($title:String!,$owner:String! ){
-    createPost(title:$title,owner:$owner){
-      id,
-      title,
-      createdAt
-      updatedAt
+export const CREATE_SONG = `mutation CreatePost($title:String!,$description:String!){
+  createPost(input:{title:$title,description:$description}){
+    id
+    title
+    description
+    createdAt
+    createdAt
   }
-  }`;
+}`;
 
 export const LOGIN_MUTATION = `mutation Login($username:String!,$password:String!){
   login(options:{username:$username,password:$password}){
@@ -35,8 +35,8 @@ export const LOGIN_MUTATION = `mutation Login($username:String!,$password:String
       username
     }
   }
-}`
+}`;
 
-export const LOGOUT_MUTATION =`mutation{
+export const LOGOUT_MUTATION = `mutation{
   logout
-}`
+}`;

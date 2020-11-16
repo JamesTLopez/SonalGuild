@@ -4,23 +4,27 @@ import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import { CREATE_SONG } from "../../urql/mutations";
 import { useMutation } from "urql";
+import {useHistory} from "react-router-dom"
 
 function CreatePostForm() {
-  const [, updateSong] = useMutation(CREATE_SONG);
+  const [, createPost] = useMutation(CREATE_SONG);
+
+  const history = useHistory();
 
   return (
     <div className="form">
       <Formik
         initialValues={{
           title: "",
-          owner: "",
+          description: "",
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(async () => {
             setSubmitting(false);
-            // console.log(values);
+
             // const newLyric = {title:"From client",owner:'DasJames'};
-            updateSong(values).then((result) => console.log(result));
+            await createPost(values);
+            // history.push('/song')
           }, 500);
         }}
       >
@@ -45,10 +49,10 @@ function CreatePostForm() {
             <br />
             <Field
               component={TextField}
-              type="owner"
-              name="owner"
+              type="description"
+              name="description"
               id="filled-full-width"
-              label="Owner"
+              label="description"
               style={{ margin: "1em 0" }}
               placeholder=" "
               fullWidth
