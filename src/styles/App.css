@@ -65,6 +65,24 @@
   }
 }
 
+@-webkit-keyframes shift-right {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes shift-right {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
 html,
 body,
 #root,
@@ -90,14 +108,25 @@ body,
 }
 
 .home .header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(-0.45%, #e98b55), color-stop(71.18%, #e76f51));
   background: linear-gradient(0deg, #e98b55 -0.45%, #e76f51 71.18%);
-  height: 600px;
+  min-height: 600px;
 }
 
 .home .header-container .row {
   max-width: 1260px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .home .header-container .header {
@@ -155,8 +184,14 @@ body,
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  min-height: 600px;
   width: 100%;
+}
+
+.home .header-container .imageContainer .bg-img {
+  position: absolute;
+  top: 0;
+  left: 50%;
 }
 
 .home .header-container .imageContainer .rays {
@@ -174,62 +209,120 @@ body,
 }
 
 .home .header-container .imageContainer #ray1 {
-  margin-left: 200px;
+  margin-left: -800px;
   height: 600px;
   width: 1000px;
 }
 
 .home .header-container .imageContainer #ray2 {
-  margin-left: 700px;
+  margin-left: -300px;
   height: 600px;
   width: 1600px;
 }
 
 .home .header-container .imageContainer #cloud1 {
+  margin-left: -1000px;
   top: 100px;
   width: 722px;
   height: 500px;
+  -webkit-animation: shift-right;
+          animation: shift-right;
+  -webkit-animation-duration: 800s;
+          animation-duration: 800s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .home .header-container .imageContainer #cloud2 {
   top: 0px;
-  margin-left: 1000px;
+  margin-left: 0px;
   width: 722px;
   height: 600px;
+  -webkit-animation: shift-right;
+          animation: shift-right;
+  -webkit-animation-duration: 700s;
+          animation-duration: 700s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .home .header-container .imageContainer #tinyCloud1 {
+  margin-left: -700px;
   top: 408px;
   height: 10px;
   width: 100px;
+  -webkit-animation: shift-right;
+          animation: shift-right;
+  -webkit-animation-duration: 230s;
+          animation-duration: 230s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .home .header-container .imageContainer #tinyCloud2 {
   top: 208px;
-  margin-left: 1000px;
+  margin-left: -1000px;
   height: 20px;
   width: 200px;
+  -webkit-animation: shift-right;
+          animation: shift-right;
+  -webkit-animation-duration: 330s;
+          animation-duration: 330s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .home .header-container .imageContainer #tinyCloud3 {
   top: 408px;
-  margin-left: 1400px;
+  margin-left: -200px;
   height: 25px;
   width: 250px;
+  -webkit-animation: shift-right;
+          animation: shift-right;
+  -webkit-animation-duration: 400s;
+          animation-duration: 400s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .home .header-container .imageContainer #tinyCloud4 {
   top: 495px;
-  margin-left: 400px;
+  margin-left: -600px;
   height: 105px;
   width: 300px;
+  -webkit-animation: shift-right;
+          animation: shift-right;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .home .header-container .imageContainer #tinyCloud5 {
   top: 35px;
-  margin-left: 100px;
+  margin-left: -100px;
   height: 105px;
   width: 300px;
+  -webkit-animation: shift-right;
+          animation: shift-right;
+  -webkit-animation-duration: 700s;
+          animation-duration: 700s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .authentication {

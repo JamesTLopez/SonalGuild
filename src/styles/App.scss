@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
+
 @import "./variables";
 @import "./animations";
 
@@ -24,13 +25,16 @@ body,
   height: 100%;
 
   .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: linear-gradient(0deg, #e98b55 -0.45%, #e76f51 71.18%);
-
-    height: 600px;
+    min-height: 600px;
 
     .row {
       max-width: 1260px;
       margin: 0 auto;
+      width: 100%;
     }
 
     .header {
@@ -50,7 +54,6 @@ body,
         z-index: 1;
         justify-content: flex-end;
         a {
-    
           text-decoration: none;
           font-size: 20px;
           color: white;
@@ -69,9 +72,16 @@ body,
       position: absolute;
       top: 0;
       left: 0;
-      height: 100%;
+      min-height: 600px;
       width: 100%;
-      .rays{
+
+      .bg-img {
+        position: absolute;
+        top: 0;
+        left: 50%;
+      }
+
+      .rays {
         position: absolute;
         top: 0;
         left: 0;
@@ -79,60 +89,90 @@ body,
         width: 100%;
       }
 
-      .clouds{
+      .clouds {
         position: absolute;
         top: 0;
         left: 0;
       }
-      #ray1{
-        margin-left: 200px;
-        height:600px;
+      #ray1 {
+        margin-left:-800px;
+        height: 600px;
         width: 1000px;
       }
-      #ray2{
-        margin-left: 700px;
-        height:600px;
+      #ray2 {
+        margin-left: -300px;
+        height: 600px;
         width: 1600px;
       }
-      #cloud1{
+      #cloud1 {
+        margin-left: -1000px;
         top: 100px;
         width: 722px;
-        height:  500px;
+        height: 500px;
+        animation: shift-right;
+        animation-duration: 800s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
       }
-      #cloud2{
+      #cloud2 {
         top: 0px;
-        margin-left:1000px;
+        margin-left:0px;
         width: 722px;
-        height:  600px;
+        height: 600px;
+        animation: shift-right;
+        animation-duration: 700s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
       }
-      #tinyCloud1{
-        top:408px;
+      #tinyCloud1 {
+               margin-left:-700px;
+        top: 408px;
         height: 10px;
         width: 100px;
+        animation: shift-right;
+        animation-duration: 230s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
       }
-      #tinyCloud2{
-        top:208px;
-        margin-left:1000px;
+      #tinyCloud2 {
+        top: 208px;
+        margin-left: -1000px;
         height: 20px;
         width: 200px;
+        animation: shift-right;
+        animation-duration: 330s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
       }
-      #tinyCloud3{
-        top:408px;
-        margin-left:1400px;
+      #tinyCloud3 {
+        top: 408px;
+        margin-left: -200px;
         height: 25px;
         width: 250px;
+        animation: shift-right;
+        animation-duration: 400s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
       }
-      #tinyCloud4{
-        top:495px;
-        margin-left:400px;
+      #tinyCloud4 {
+        top: 495px;
+        margin-left: -600px;
         height: 105px;
         width: 300px;
+        animation: shift-right;
+        animation-duration: 100s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
       }
-      #tinyCloud5{
-        top:35px;
-        margin-left:100px;
+      #tinyCloud5 {
+        top: 35px;
+        margin-left: -100px;
         height: 105px;
         width: 300px;
+        animation: shift-right;
+        animation-duration: 700s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
       }
     }
   }

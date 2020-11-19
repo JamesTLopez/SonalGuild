@@ -32,3 +32,15 @@
     opacity: 1;
   }
 }
+
+
+
+@keyframes shift-right{
+  from{
+    left:50%;
+  
+  }
+  to{
+    left:100%;
+  }
+}
