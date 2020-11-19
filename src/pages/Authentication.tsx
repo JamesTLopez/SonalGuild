@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route,useRouteMatch } from "react-router-dom";
-import LoginForm from "./LoginForm";
-import RegisterForm from "./RegisterForm";
-import { ShieldLogo } from "../../images/imageList";
+import LoginForm from "../components/auth/LoginForm";
+import RegisterForm from "../components/auth/RegisterForm";
+import { ShieldLogo } from "../images/imageList";
 
 function Register() {
   let { path } = useRouteMatch();
@@ -13,7 +13,9 @@ function Register() {
           <div className="information-container">
             <div className="title">
               <div className="img-container">
-                <img src={ShieldLogo} alt="Shield Logo" />
+                <a href="/">
+                  <img src={ShieldLogo} alt="Shield Logo" />
+                </a>
               </div>
               <div className="description">
                 <h1>Sonals Guild</h1>

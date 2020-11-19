@@ -1,6 +1,6 @@
 import React from "react";
-import LyricsArea from "./layouts/LyricsArea";
-import MainHeader from "./layouts/MainHeader";
+import LyricsArea from "../components/song/LyricsArea";
+import MainHeader from "../components/song/MainHeader";
 
 function Song() {
   return (

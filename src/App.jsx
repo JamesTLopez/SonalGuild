@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Authentication from "./components/auth/Authentication";
-import Dashboard from "./components/projects/Dashboard";
-import Song from "./components/firepad/Song";
+import Authentication from "./pages/Authentication";
+import Dashboard from "./pages/Dashboard";
+import Song from "./pages/Song";
+import Home from "./pages/Home";
 import { createClient, Provider, dedupExchange, fetchExchange } from "urql";
 import { cacheExchange } from "@urql/exchange-graphcache";
 import { FIND_POSTS, ME_QUERY } from "./urql/queries";
@@ -46,6 +47,9 @@ function App() {
       <Router>
         <div className="App">
           <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route path="/authentication">
               <Authentication />
             </Route>

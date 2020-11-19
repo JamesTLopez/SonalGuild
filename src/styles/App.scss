@@ -15,6 +15,129 @@ body,
   font-family: "Bree Serif", serif;
 }
 
+//HOME PAGE SCSS
+
+.home {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+
+  .header-container {
+    background: linear-gradient(0deg, #e98b55 -0.45%, #e76f51 71.18%);
+
+    height: 600px;
+
+    .row {
+      max-width: 1260px;
+      margin: 0 auto;
+    }
+
+    .header {
+      z-index: 2;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      img {
+        display: flex;
+        margin: 5px;
+        height: 65px;
+        width: 65px;
+      }
+      nav {
+        display: flex;
+        flex: 1;
+        z-index: 1;
+        justify-content: flex-end;
+        a {
+    
+          text-decoration: none;
+          font-size: 20px;
+          color: white;
+        }
+      }
+    }
+    .title-container {
+      z-index: 2;
+      h2 {
+        margin: 20px 10px 0 10px;
+      }
+    }
+    .imageContainer {
+      z-index: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      .rays{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      .clouds{
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #ray1{
+        margin-left: 200px;
+        height:600px;
+        width: 1000px;
+      }
+      #ray2{
+        margin-left: 700px;
+        height:600px;
+        width: 1600px;
+      }
+      #cloud1{
+        top: 100px;
+        width: 722px;
+        height:  500px;
+      }
+      #cloud2{
+        top: 0px;
+        margin-left:1000px;
+        width: 722px;
+        height:  600px;
+      }
+      #tinyCloud1{
+        top:408px;
+        height: 10px;
+        width: 100px;
+      }
+      #tinyCloud2{
+        top:208px;
+        margin-left:1000px;
+        height: 20px;
+        width: 200px;
+      }
+      #tinyCloud3{
+        top:408px;
+        margin-left:1400px;
+        height: 25px;
+        width: 250px;
+      }
+      #tinyCloud4{
+        top:495px;
+        margin-left:400px;
+        height: 105px;
+        width: 300px;
+      }
+      #tinyCloud5{
+        top:35px;
+        margin-left:100px;
+        height: 105px;
+        width: 300px;
+      }
+    }
+  }
+}
+
 //AUTHENTICATION SCSS
 .authentication {
   display: flex;
@@ -60,8 +183,10 @@ body,
           .img-container {
             align-self: center;
             margin: auto;
-            img {
-              height: 100px;
+            a {
+              img {
+                height: 100px;
+              }
             }
           }
         }
@@ -181,12 +306,12 @@ body,
       justify-content: flex-end;
       align-items: center;
 
-      h1{
+      h1 {
         font-size: 22px;
         color: white;
         margin: 0 20px 0 0;
       }
-      button{
+      button {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -490,8 +615,6 @@ body,
     }
   }
 }
-
-
 
 //MISCELLANEOUS
 

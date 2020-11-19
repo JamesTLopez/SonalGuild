@@ -1,6 +1,6 @@
 import React from "react";
-import HeaderDash from "./HeaderDash";
-import SongLibrary from "./SongLibrary";
+import HeaderDash from "../components/dashboard/HeaderDash";
+import SongLibrary from "../components/dashboard/SongLibrary";
 
 function Dashboard() {
 

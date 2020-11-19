@@ -21,10 +21,12 @@ function CreatePostForm() {
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(async () => {
             setSubmitting(false);
+            const {error} = await createPost(values);
 
-            // const newLyric = {title:"From client",owner:'DasJames'};
-            await createPost(values);
-            // history.push('/song')
+            if(error?.message.includes("Not authenticated")){
+              history.push('/authentication/login')
+            }
+            history.push('/song')
           }, 500);
         }}
       >
