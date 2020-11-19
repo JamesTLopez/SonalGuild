@@ -159,23 +159,86 @@ body,
       -ms-flex: 1;
           flex: 1;
   z-index: 1;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .home .header-container .header nav a {
+  margin: 0px 22px;
   text-decoration: none;
   font-size: 20px;
   color: white;
 }
 
+.home .header-container .header .button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.home .header-container .header .button-container a {
+  text-decoration: none;
+  font-size: 20px;
+  background-color: white;
+  color: #e76f51;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
 .home .header-container .title-container {
   z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 70px;
 }
 
 .home .header-container .title-container h2 {
+  font-size: 54px;
+  letter-spacing: 3px;
+  color: white;
   margin: 20px 10px 0 10px;
+}
+
+.home .header-container .title-container .title-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.home .header-container .title-container .title-description p {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 17px;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.home .header-container .title-container a {
+  text-decoration: none;
+  font-size: 25px;
+  background-color: white;
+  color: #e76f51;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
 }
 
 .home .header-container .imageContainer {
@@ -233,6 +296,8 @@ body,
           animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .home .header-container .imageContainer #cloud2 {
@@ -248,6 +313,8 @@ body,
           animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .home .header-container .imageContainer #tinyCloud1 {
@@ -263,6 +330,8 @@ body,
           animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .home .header-container .imageContainer #tinyCloud2 {
@@ -278,6 +347,8 @@ body,
           animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .home .header-container .imageContainer #tinyCloud3 {
@@ -293,6 +364,8 @@ body,
           animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .home .header-container .imageContainer #tinyCloud4 {
@@ -308,6 +381,8 @@ body,
           animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .home .header-container .imageContainer #tinyCloud5 {
@@ -323,6 +398,8 @@ body,
           animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .authentication {

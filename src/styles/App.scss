@@ -52,18 +52,63 @@ body,
         display: flex;
         flex: 1;
         z-index: 1;
-        justify-content: flex-end;
+        justify-content: center;
         a {
+          margin: 0px 22px;
           text-decoration: none;
           font-size: 20px;
           color: white;
         }
       }
+      .button-container{
+        display: flex;
+        justify-content: flex-end;
+        a {
+
+          text-decoration: none;
+          font-size: 20px;
+          background-color: white;
+          color:#e76f51;
+          padding: 3px 10px;
+          border-radius: 20px;
+        }
+       
+      }
     }
     .title-container {
       z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 70px;
       h2 {
+        font-size: 54px;
+        letter-spacing: 3px;
+        color: white;
         margin: 20px 10px 0 10px;
+      }
+      .title-description{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        p{
+          margin-top: 40px;
+          text-align: center;
+          font-size: 17px;
+          letter-spacing: 2px;
+          color: white;
+        }
+     
+      }
+      a{
+
+        text-decoration: none;
+        font-size: 25px;
+        background-color: white;
+        color:#e76f51;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border-radius: 20px;
       }
     }
     .imageContainer {
@@ -113,6 +158,7 @@ body,
         animation-duration: 800s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
       }
       #cloud2 {
         top: 0px;
@@ -123,6 +169,7 @@ body,
         animation-duration: 700s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
       }
       #tinyCloud1 {
                margin-left:-700px;
@@ -133,6 +180,7 @@ body,
         animation-duration: 230s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
       }
       #tinyCloud2 {
         top: 208px;
@@ -143,6 +191,7 @@ body,
         animation-duration: 330s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
       }
       #tinyCloud3 {
         top: 408px;
@@ -153,6 +202,7 @@ body,
         animation-duration: 400s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
       }
       #tinyCloud4 {
         top: 495px;
@@ -163,6 +213,7 @@ body,
         animation-duration: 100s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
       }
       #tinyCloud5 {
         top: 35px;
@@ -173,6 +224,7 @@ body,
         animation-duration: 700s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
       }
     }
   }
