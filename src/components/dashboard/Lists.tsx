@@ -19,14 +19,16 @@ interface songinformation {
 
 const Lists: React.FC<songinformation> = ({postId, title, creator, createdAt }) => {
   const [, deletePost] = useMutation(DELETE_SONG);
+
+  let d = new Date(parseInt(createdAt));
+  console.log(d.getFullYear())
   return (
     <div className="list">
       <Link id="half" to="song">
         <h3>{title}</h3>
       </Link>
       <h3 id="quarter"> {creator.username} </h3>
-      <h3 id="quarter"> {createdAt}</h3>
-    <h3>{postId}</h3>
+      <h3 id="quarter"> {d.getMonth()}/{d.getDay()}/ {d.getFullYear()}</h3>
       <svg
         onClick={()=>deletePost({id:postId})}
         id="delete"
