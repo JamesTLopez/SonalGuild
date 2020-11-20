@@ -3,6 +3,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Scale, Key } from "@tonaljs/tonal";
 
+
 function LyricsArea() {
   const NOTES = [
     "C",
@@ -140,7 +141,6 @@ function LyricsArea() {
               <div className="item-list">
                 <div className="left-panel">
                   <p>I</p>
-
                   <p>ii</p>
                   <p>iii</p>
                   <p>iV</p>
@@ -168,7 +168,6 @@ function LyricsArea() {
             </div>
           </div>
         </div>
-        {/* <textarea onDrop={drop} onDragOver={(event:any)=>event.preventDefault()}></textarea> */}
 
         <div className="text">
           <ReactQuill value={value} theme="snow" onChange={setValue} />

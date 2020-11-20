@@ -7,6 +7,9 @@ import {
   Cloud2,
   TinyCloud1,
   TinyCloud2,
+  Note1,
+  Note3,
+  Note4
 } from "../../images/imageList";
 
 function Header() {
@@ -37,6 +40,10 @@ function Header() {
         <img id="ray2" className="bg-img" src={Ray2} alt="Ray2"></img>
         <img id="cloud1" className="bg-img" src={Cloud1} alt="cloud1"></img>
         <img id="cloud2" className="bg-img" src={Cloud2} alt="cloud2"></img>
+        <img id="note1" className="bg-img" src={Note1} alt="note1"></img>
+        <img id="note2" className="bg-img" src={Note1} alt="note2"></img>
+        <img id="note3" className="bg-img" src={Note3} alt="note3"></img>
+        <img id="note4" className="bg-img" src={Note4} alt="note4"></img>
         <img
           id="tinyCloud1"
           className="bg-img"

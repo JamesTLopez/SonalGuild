@@ -24,6 +24,10 @@ export const CREATE_SONG = `mutation CreatePost($title:String!,$description:Stri
   }
 }`;
 
+export const DELETE_SONG = `mutation DeletePost($id:Int!){
+  deletePost(id:$id)
+}`;
+
 export const LOGIN_MUTATION = `mutation Login($username:String!,$password:String!){
   login(options:{username:$username,password:$password}){
     errors{

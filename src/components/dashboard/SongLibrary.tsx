@@ -4,15 +4,19 @@ import { useQuery } from "urql";
 import { FIND_POSTS } from "../../urql/queries";
 import { Button } from "@material-ui/core";
 import CreatePostForm from "./CreatePostForm";
-
+import {useHistory} from "react-router-dom";
+ 
 
 function SongLibrary() {
 
-
+  const history = useHistory();
   const [showModal, setModal] = useState<boolean>(false);
   const [result] = useQuery({
     query: FIND_POSTS,
-   
+    variables:{
+      limit:1,
+      cursor:null
+    }
   });
 
   
@@ -20,7 +24,11 @@ function SongLibrary() {
   const { data, fetching, error } = result;
 
   if (fetching) return <p>Loading...</p>;
-  if (error) return <p>Oh no... {error.message}</p>;
+  if (error){
+    history.push('/authentication/login');
+    return null;
+  } 
+
 
 
 
@@ -46,14 +54,15 @@ function SongLibrary() {
         <div className="song-list">
           <div className="song-header">
             <h3 id="half">Name</h3>
-            <h3 id="quarter">Description</h3>
+            <h3 id="quarter">Owner</h3>
             <h3 id="quarter">Date</h3>
           </div>
           {data.posts.map((post: any) => (
             <Lists
               key={post.id}
+              postId={post.id}
               title={post.title}
-              owner={post.creatorId}
+              creator={post.creator}
               createdAt={post.createdAt}
             />
           ))}

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import { createClient, Provider, dedupExchange, fetchExchange } from "urql";
 import { cacheExchange } from "@urql/exchange-graphcache";
 import { FIND_POSTS, ME_QUERY } from "./urql/queries";
+import TempChord from "./components/song/TempChord";
 
 const client = createClient({
   url: "http://localhost:4000/graphql",
@@ -14,7 +15,6 @@ const client = createClient({
   exchanges: [
     dedupExchange,
     cacheExchange({
-      //updates the cache after making requests
       updates: {
         Mutation: {
           logout: (result, args, cache, info) => {
@@ -30,9 +30,32 @@ const client = createClient({
             });
           },
           createPost: (result, args, cache, info) => {
-            cache.updateQuery({ query: FIND_POSTS }, (data) => {
-              return { ...data, posts: [...data.posts, result] };
-            });
+            cache.updateQuery(
+              {
+                query: FIND_POSTS,
+                variables: {
+                  limit: 1,
+                  cursor: null,
+                },
+              },
+              (data) => {
+                return { ...data, posts: [...data.posts, result] };
+              }
+            );
+          },
+          deletePost: (result, args, cache, info) => {
+            cache.updateQuery(
+              {
+                query: FIND_POSTS,
+                variables: {
+                  limit: 1,
+                  cursor: null,
+                },
+              },
+              (data) => {
+                return { ...data, posts: [...data.posts, result] };
+              }
+            );
           },
         },
       },
@@ -58,6 +81,9 @@ function App() {
             </Route>
             <Route path="/song">
               <Song />
+            </Route>
+            <Route path="/temp">
+              <TempChord />
             </Route>
           </Switch>
         </div>

@@ -67,19 +67,19 @@
 
 @-webkit-keyframes shift-right {
   from {
-    left: 50%;
+    left: 900px;
   }
   to {
-    left: 100%;
+    left: 2000px;
   }
 }
 
 @keyframes shift-right {
   from {
-    left: 50%;
+    left: 900px;
   }
   to {
-    left: 100%;
+    left: 2000px;
   }
 }
 
@@ -281,6 +281,74 @@ body,
   margin-left: -300px;
   height: 600px;
   width: 1600px;
+}
+
+.home .header-container .imageContainer #note1 {
+  margin-left: -1000px;
+  top: 100px;
+  width: 222px;
+  height: 70px;
+  -webkit-animation: shift-right;
+          animation: shift-right;
+  -webkit-animation-duration: 140s;
+          animation-duration: 140s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.home .header-container .imageContainer #note2 {
+  margin-left: -300px;
+  top: 300px;
+  width: 222px;
+  height: 70px;
+  -webkit-animation: shift-right;
+          animation: shift-right;
+  -webkit-animation-duration: 800s;
+          animation-duration: 800s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.home .header-container .imageContainer #note3 {
+  margin-left: -600px;
+  top: 400px;
+  width: 252px;
+  height: 95px;
+  -webkit-animation: shift-right;
+          animation: shift-right;
+  -webkit-animation-duration: 300s;
+          animation-duration: 300s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.home .header-container .imageContainer #note4 {
+  margin-left: 300px;
+  top: 100px;
+  width: 252px;
+  height: 95px;
+  -webkit-animation: shift-right;
+          animation: shift-right;
+  -webkit-animation-duration: 800s;
+          animation-duration: 800s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .home .header-container .imageContainer #cloud1 {
@@ -824,6 +892,7 @@ body,
 }
 
 .dashboard-container .dashboard-content .SongLibrary .song-list .list {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -861,6 +930,13 @@ body,
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .song-list .list #delete {
+  position: absolute;
+  right: 30px;
+  bottom: 15px;
+  cursor: pointer;
 }
 
 .dashboard-container .dashboard-content .SongLibrary .song-list .list:hover {
@@ -1308,5 +1384,10 @@ body,
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+#chart {
+  height: 100px;
+  width: 100px;
 }
 /*# sourceMappingURL=App.css.map */
