@@ -21,7 +21,8 @@ const Lists: React.FC<songinformation> = ({postId, title, creator, createdAt }) 
   const [, deletePost] = useMutation(DELETE_SONG);
 
   let d = new Date(parseInt(createdAt));
-  console.log(d.getFullYear())
+
+  
   return (
     <div className="list">
       <Link id="half" to="song">
