@@ -23,8 +23,6 @@ function Song() {
 
   const { data, fetching, error } = result;
   
-  
-
   if (fetching) return <p>Loading...</p>;
   if (error ){
 

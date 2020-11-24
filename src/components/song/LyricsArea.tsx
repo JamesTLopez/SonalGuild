@@ -30,10 +30,9 @@ const LyricsArea: React.FC<lyricsProps> = ({title,description}) => {
     scale: Scale.get("C major"),
     type: "major",
   });
-  console.log(description)
 
   const [theoryActivated, isActivated] = useState<boolean>(false);
-  const [value, setValue] = useState(description);
+
 
 
   function changeKey(key: string) {
@@ -177,7 +176,7 @@ const LyricsArea: React.FC<lyricsProps> = ({title,description}) => {
         </div>
 
         <div className="text">
-          <ReactQuill value={description} modules={{"toolbar":false}} theme="snow" onChange={setValue} />
+          <ReactQuill value={description} modules={{"toolbar":false}}  />
         </div>
       </div>
     </div>
