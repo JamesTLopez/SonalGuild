@@ -30,3 +30,13 @@ export const FIND_POSTSF = `{
     createdAt
   }
 }`;
+
+
+
+export const FIND_ONE_POST = `query($id:Int!) {
+  post(id:$id){
+    title
+    description
+  }
+
+}`

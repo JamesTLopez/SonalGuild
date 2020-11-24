@@ -25,7 +25,7 @@ const Lists: React.FC<songinformation> = ({postId, title, creator, createdAt }) 
   
   return (
     <div className="list">
-      <Link id="half" to="song">
+      <Link id="half" to={`song/name=${postId}`}>
         <h3>{title}</h3>
       </Link>
       <h3 id="quarter"> {creator.username} </h3>

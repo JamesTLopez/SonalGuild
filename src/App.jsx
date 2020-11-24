@@ -79,7 +79,7 @@ function App() {
             <Route path="/dashboard">
               <Dashboard />
             </Route>
-            <Route path="/song">
+            <Route path="/song/name=:id">
               <Song />
             </Route>
             <Route path="/temp">

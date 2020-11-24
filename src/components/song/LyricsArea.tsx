@@ -3,8 +3,13 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Scale, Key } from "@tonaljs/tonal";
 
+interface lyricsProps {
+  title:string;
+  description:string;
+}
 
-function LyricsArea() {
+
+const LyricsArea: React.FC<lyricsProps> = ({title,description}) => {
   const NOTES = [
     "C",
     "C#",
@@ -25,9 +30,10 @@ function LyricsArea() {
     scale: Scale.get("C major"),
     type: "major",
   });
+  console.log(description)
 
   const [theoryActivated, isActivated] = useState<boolean>(false);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(description);
 
 
   function changeKey(key: string) {
@@ -171,7 +177,7 @@ function LyricsArea() {
         </div>
 
         <div className="text">
-          <ReactQuill value={value} modules={{"toolbar":false}} theme="snow" onChange={setValue} />
+          <ReactQuill value={description} modules={{"toolbar":false}} theme="snow" onChange={setValue} />
         </div>
       </div>
     </div>
