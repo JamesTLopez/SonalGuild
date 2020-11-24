@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import LyricsArea from "../components/song/LyricsArea";
 import MainHeader from "../components/song/MainHeader";
-import { useLocation, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { useQuery } from "urql";
 import { FIND_ONE_POST } from "../urql/queries";
 

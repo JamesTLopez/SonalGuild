@@ -25,7 +25,7 @@ const MainHeader: React.FC<props> = ({title}) => {
         <span>BACK TO PROJECTS</span>
       </Link>
       <div className="title">
-        {title}
+        {title} 
       </div>
     </header>
   );

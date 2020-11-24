@@ -1250,8 +1250,8 @@ body,
 
 .song-container .lyric-container .lyric-textarea .text .quill {
   background-color: white;
-  min-width: 650px;
-  height: 80vh;
+  min-width: 720px;
+  height: 85vh;
 }
 
 .song-container .lyric-container .lyric-textarea .text .quill .ql-snow {
