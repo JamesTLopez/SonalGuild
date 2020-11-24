@@ -32,7 +32,7 @@ function Song() {
 
   return (
     <div className="song-container">
-      <MainHeader />
+      <MainHeader title={data.post.title}/>
       <LyricsArea title={data.post.title} description={data.post.description}/>
     </div>
   );

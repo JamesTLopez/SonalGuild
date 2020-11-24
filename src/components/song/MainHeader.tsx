@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function MainHeader() {
+interface props {
+  title:string;
+}
+
+
+const MainHeader: React.FC<props> = ({title}) => {
   return (
     <header className="top">
       <Link to="/dashboard">
@@ -19,6 +24,9 @@ function MainHeader() {
         </svg>
         <span>BACK TO PROJECTS</span>
       </Link>
+      <div className="title">
+        {title}
+      </div>
     </header>
   );
 }

@@ -974,6 +974,8 @@ body,
 }
 
 .song-container .top a {
+  z-index: 10;
+  width: 40%;
   margin-left: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -987,6 +989,22 @@ body,
 
 .song-container .top a span {
   margin-left: 10px;
+}
+
+.song-container .top .title {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  color: white;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 25px;
 }
 
 .song-container .song-toolbar {
@@ -1142,6 +1160,7 @@ body,
           justify-content: center;
   border: 1px solid #bdbbbb;
   width: 80%;
+  margin-top: 20px;
 }
 
 .song-container .lyric-container .lyric-textarea .theory .key .key-container h1 {
@@ -1231,7 +1250,7 @@ body,
 
 .song-container .lyric-container .lyric-textarea .text .quill {
   background-color: white;
-  min-width: 95vh;
+  min-width: 650px;
   height: 80vh;
 }
 
@@ -1239,6 +1258,10 @@ body,
   border: none;
   -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.062);
           box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.062);
+}
+
+.song-container .lyric-container .lyric-textarea .text .quill .ql-snow .ql-editor {
+  padding: 35px 45px;
 }
 
 .displayNone {

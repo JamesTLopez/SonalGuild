@@ -595,6 +595,8 @@ body,
     height: 62px;
     top: 0;
     a {
+      z-index: 10;
+     width: 40%;
       margin-left: 10px;
       display: flex;
       align-items: center;
@@ -603,6 +605,15 @@ body,
       span {
         margin-left: 10px;
       }
+    }
+    .title{
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      color:white;
+      flex:1;
+      font-size: 25px;
     }
   }
   .song-toolbar {
@@ -702,6 +713,7 @@ body,
             justify-content: center;
             border: 1px solid rgb(189, 187, 187);
             width: 80%;
+            margin-top: 20px;
 
             h1 {
               font-size: 20px;
@@ -759,11 +771,14 @@ body,
         .quill {
           background-color: white;
           .ql-snow{
+            .ql-editor{
+              padding: 35px 45px;
+            }
             border:none;
     
             box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.062);
           }
-          min-width: 95vh;
+          min-width: 650px;
           height: 80vh;
         }
       }
