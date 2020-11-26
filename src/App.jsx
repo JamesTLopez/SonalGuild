@@ -4,78 +4,11 @@ import Authentication from "./pages/Authentication";
 import Dashboard from "./pages/Dashboard";
 import Song from "./pages/Song";
 import Home from "./pages/Home";
-import { createClient, Provider, dedupExchange, fetchExchange } from "urql";
-import { cacheExchange } from "@urql/exchange-graphcache";
-import { FIND_POSTS, ME_QUERY } from "./urql/queries";
-import TempChord from "./components/song/TempChord";
+import { Provider } from "urql";
 
-const client = createClient({
-  url: "http://localhost:4000/graphql",
-  fetchOptions: { credentials: "include" },
-  exchanges: [
-    dedupExchange,
-    cacheExchange({
-      updates: {
-        Mutation: {
-          logout: (result, args, cache, info) => {
-            cache.updateQuery({ query: ME_QUERY }, (data) => {
-              return { ...data, me: null };
-            });
-          },
-          logout: (result, args, cache, info) => {
-            cache.updateQuery(
-              {
-                query: FIND_POSTS,
-                variables: {
-                  limit: 1,
-                  cursor: null,
-                },
-              },
-              (data) => {
-                console.log(data);
-                return { ...data, posts: [...data.posts, result] };
-              }
-            );
-          },
-          login: (result, args, cache, info) => {
-            cache.updateQuery({ query: ME_QUERY }, (data) => {
-              return { ...data, me: result.login.user };
-            });
-          },
-          createPost: (result, args, cache, info) => {
-            cache.updateQuery(
-              {
-                query: FIND_POSTS,
-                variables: {
-                  limit: 1,
-                  cursor: null,
-                },
-              },
-              (data) => {
-                return { ...data, posts: [...data.posts, result] };
-              }
-            );
-          },
-          deletePost: (result, args, cache, info) => {
-            cache.updateQuery(
-              {
-                query: FIND_POSTS,
-                variables: {
-                  limit: 1,
-                  cursor: null,
-                },
-              },
-              (data) => {
-                return { ...data, posts: [...data.posts, result] };
-              }
-            );
-          },
-        },
-      },
-    }),
-    fetchExchange,
-  ],
-});
+import { client } from "../src/urql/clientConfig";
+
+import TempChord from "./components/song/TempChord";
 
 function App() {
   return (

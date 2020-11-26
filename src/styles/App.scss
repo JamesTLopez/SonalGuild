@@ -276,6 +276,49 @@ body,
       }
     }
   }
+
+  .description-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 680px;
+    width: 100%;
+  }
+  .wave-1, .wave-2{
+    position: relative;
+    display: flex;
+  }
+  .wave-1{
+    position: relative;
+    top:2px;
+    align-items: flex-end;
+    img{
+      position: relative;
+
+      width: 7000px;
+    }
+  }
+  .wave-2{
+    position: relative;
+    bottom: 2px;
+    align-items: flex-start;
+    img{
+      position: relative;
+  
+      width: 7000px;
+      transform: scaleY(-1);
+    }
+  }
+
+  .features-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F48B64;
+    min-height: 680px;
+  }
 }
 
 //AUTHENTICATION SCSS

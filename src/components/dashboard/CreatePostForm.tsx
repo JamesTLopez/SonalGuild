@@ -26,7 +26,7 @@ function CreatePostForm() {
             if(error?.message.includes("Not authenticated")){
               history.push('/authentication/login')
             }
-            history.push('/song')
+            // history.push('/song/')
           }, 500);
         }}
       >
