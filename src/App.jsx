@@ -19,13 +19,26 @@ const client = createClient({
         Mutation: {
           logout: (result, args, cache, info) => {
             cache.updateQuery({ query: ME_QUERY }, (data) => {
-              console.log(data);
               return { ...data, me: null };
             });
           },
+          logout: (result, args, cache, info) => {
+            cache.updateQuery(
+              {
+                query: FIND_POSTS,
+                variables: {
+                  limit: 1,
+                  cursor: null,
+                },
+              },
+              (data) => {
+                console.log(data);
+                return { ...data, posts: [...data.posts, result] };
+              }
+            );
+          },
           login: (result, args, cache, info) => {
             cache.updateQuery({ query: ME_QUERY }, (data) => {
-              console.log(data);
               return { ...data, me: result.login.user };
             });
           },

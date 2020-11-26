@@ -22,14 +22,6 @@ export const ME_QUERY =  `{
   }
 }`
 
-export const FIND_POSTSF = `{
-  postsf{
-    id,
-    title,
-    description,
-    createdAt
-  }
-}`;
 
 
 

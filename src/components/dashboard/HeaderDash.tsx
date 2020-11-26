@@ -20,6 +20,7 @@ const HeaderDash: React.FC<props> = ({username}) => {
     query: ME_QUERY,
   });
   const [, logout] = useMutation(LOGOUT_MUTATION);
+
   const { data, fetching, error } = result;
 
   if (fetching){
@@ -40,6 +41,7 @@ const HeaderDash: React.FC<props> = ({username}) => {
         <h1>{username}</h1>
         <Button onClick={()=>{
           logout()
+
           history.push("/authentication/login");
           }}>Logout</Button>
       </nav>:<nav>
