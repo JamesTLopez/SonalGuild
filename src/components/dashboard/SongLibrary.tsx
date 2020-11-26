@@ -4,12 +4,13 @@ import { useQuery } from "urql";
 import { FIND_POSTS } from "../../urql/queries";
 import { Button } from "@material-ui/core";
 import CreatePostForm from "./CreatePostForm";
-import {useHistory} from "react-router-dom";
+
+import ErrorPage from "../../pages/ErrorPage"
  
 
 function SongLibrary() {
 
-  const history = useHistory();
+
   const [showModal, setModal] = useState<boolean>(false);
   const [result] = useQuery({
     query: FIND_POSTS,
@@ -25,8 +26,9 @@ function SongLibrary() {
 
   if (fetching) return <p>Loading...</p>;
   if (error){
-    history.push('/authentication/login');
-    return null;
+    console.log(error.response.status);
+
+    return (<ErrorPage status={error.response.status}/>);
   } 
 
 

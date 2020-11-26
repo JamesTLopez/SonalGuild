@@ -1,7 +1,7 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState } from "react";
 import { SVGuitarChord } from "svguitar";
-import { Scale, Key } from "@tonaljs/tonal";
-import {Fsharp,Cmajor}  from "./chords";
+// import { Scale, Key } from "@tonaljs/tonal";
+import {Fsharp}  from "./chords";
 import config from './_config'
 
 
@@ -12,22 +12,15 @@ chart
   .chord(Fsharp)
   .configure(config)
   
-  const [] = useState<any>({
-    key: "C",
-    chord: Key.majorKey("C"),
-    scale: Scale.get("C major"),
-    type: "major",
-  });
+  // const [] = useState<any>({
+  //   key: "C",
+  //   chord: Key.majorKey("C"),
+  //   scale: Scale.get("C major"),
+  //   type: "major",
+  // });
 
   const [theoryActivated, isActivated] = useState<boolean>(true);
 
-
-
-  useEffect(()=>{
-    chart
-    .draw();
-
-  },[])
 
   const showChord = () => {
       isActivated(!theoryActivated)

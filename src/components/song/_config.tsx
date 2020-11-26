@@ -1,4 +1,4 @@
-import { Chord, ChordSettings } from "svguitar";
+import {  ChordSettings } from "svguitar";
 
 const config: ChordSettings = {
   strings: 6,

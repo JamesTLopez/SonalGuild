@@ -1,4 +1,4 @@
-import { Chord, ChordSettings } from "svguitar";
+import { Chord } from "svguitar";
 
 export const Cmajor: Chord = {
   fingers: [

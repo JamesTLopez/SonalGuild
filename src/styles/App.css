@@ -506,7 +506,8 @@ body,
   width: 100%;
 }
 
-.home .wave-1, .home .wave-2 {
+.home .wave-1,
+.home .wave-2 {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -555,7 +556,7 @@ body,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #F48B64;
+  background-color: #f48b64;
   min-height: 680px;
 }
 
@@ -867,6 +868,37 @@ body,
   right: 0px;
   bottom: 0px;
   font-family: "Roboto Condensed", sans-serif;
+}
+
+.dashboard-container .dashboard-content .error-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.dashboard-container .dashboard-content .error-container .error-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dashboard-container .dashboard-content .error-container .error-card h2 {
+  text-align: center;
 }
 
 .dashboard-container .dashboard-content .project-navigation {

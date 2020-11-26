@@ -1,4 +1,4 @@
-import { createClient, Provider, dedupExchange, fetchExchange } from "urql";
+import { createClient, dedupExchange, fetchExchange } from "urql";
 import { cacheExchange } from "@urql/exchange-graphcache";
 import { ME_QUERY, FIND_POSTS } from "./queries";
 

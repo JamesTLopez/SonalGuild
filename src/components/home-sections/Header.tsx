@@ -11,8 +11,19 @@ import {
   Note3,
   Note4
 } from "../../images/imageList";
+// import { useQuery } from "urql";
+// import { ME_QUERY } from "../../urql/queries";
 
 function Header() {
+
+
+  // const [result] = useQuery({
+  //   query: ME_QUERY,
+  // });
+
+
+
+
   return (
     <section id="header" className="header-container">
       <header className="row header">

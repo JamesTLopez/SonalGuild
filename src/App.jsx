@@ -1,13 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import Authentication from "./pages/Authentication";
 import Dashboard from "./pages/Dashboard";
 import Song from "./pages/Song";
 import Home from "./pages/Home";
 import { Provider } from "urql";
-
 import { client } from "../src/urql/clientConfig";
-
 import TempChord from "./components/song/TempChord";
 
 function App() {

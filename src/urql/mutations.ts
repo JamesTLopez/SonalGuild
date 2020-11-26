@@ -45,3 +45,11 @@ export const LOGOUT_MUTATION = `
 mutation{
   logout
 }`;
+
+export const UPDATE_DESCRIPTION = `mutation updateDescription($id:Int!,$description:String!){
+  updateDescription(id:$id,description:$description){
+    id
+    title
+    description
+  }
+}`;
