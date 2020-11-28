@@ -36,6 +36,13 @@ const LyricsArea: React.FC<lyricsProps> = ({songId,description}) => {
   const [theoryActivated, isActivated] = useState<boolean>(false);
   const [value, setValue] = useState(description);
 
+  const updateFunction = (e:string) =>{
+
+    console.log(e)
+    setValue(e);
+    updateDescription({id:songId,description:e})
+  }
+
 
 
   function changeKey(key: string) {
@@ -177,9 +184,9 @@ const LyricsArea: React.FC<lyricsProps> = ({songId,description}) => {
             </div>
           </div>
         </div>
-        <button onClick={() => updateDescription({id:songId,description:value})}>FIND</button>
+  
         <div className="text">
-          <ReactQuill value={value} modules={{"toolbar":false}} onChange={setValue}  />
+          <ReactQuill value={value} modules={{"toolbar":false}} onChange={updateFunction}  />
         </div>
       </div>
     </div>

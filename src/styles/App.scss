@@ -14,6 +14,13 @@ body,
   padding: 0;
   scroll-behavior: smooth;
   font-family: "Bree Serif", serif;
+  
+  scrollbar-width: none; /* Firefox 64 */
+  -ms-overflow-style: none; /* Internet Explorer 11 */
+  &::-webkit-scrollbar {
+    /** WebKit */
+    display: none;
+  }
 }
 
 //HOME PAGE SCSS
@@ -23,6 +30,7 @@ body,
   flex-direction: column;
   position: relative;
   height: 100%;
+  
 
   .header-container {
     display: flex;

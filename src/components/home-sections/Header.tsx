@@ -1,4 +1,5 @@
 import React from "react";
+import { useQuery } from "urql";
 import {
   ShieldLogo,
   Ray1,
@@ -11,17 +12,16 @@ import {
   Note3,
   Note4
 } from "../../images/imageList";
+import { ME_QUERY } from "../../urql/queries";
 // import { useQuery } from "urql";
 // import { ME_QUERY } from "../../urql/queries";
 
 function Header() {
 
 
-  // const [result] = useQuery({
-  //   query: ME_QUERY,
-  // });
-
-
+  const [result] = useQuery({
+    query: ME_QUERY,
+  });
 
 
   return (
@@ -35,7 +35,8 @@ function Header() {
           <a href="/authentication/login">Contact</a>
         </nav>
         <div className="button-container">
-          <a href="/authentication/login">Login</a>
+          {!result.data?.me ? <a href="/authentication/login">Login</a>:<a href="/dashboard">Back to Dashboard</a>}
+        
         </div>
       </header>
       <div className="row title-container">

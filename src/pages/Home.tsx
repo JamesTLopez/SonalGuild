@@ -24,8 +24,7 @@ function Home() {
       </div>
       <section id="features" className="features-container"></section>
 
-      <Footer/>
-
+      <Footer />
     </div>
   );
 }

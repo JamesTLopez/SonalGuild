@@ -10,6 +10,7 @@ export const client = createClient({
     cacheExchange({
       updates: {
         Mutation: {
+        
           logout: (result, args, cache, info) => {
             cache.updateQuery({ query: ME_QUERY }, (data) => {
               return { ...data, me: null };
@@ -35,6 +36,22 @@ export const client = createClient({
               return { ...data, me: result.login.user };
             });
           },
+          // updateDescription: (result, args, cache, info)=>{
+          //   cache.updateQuery(
+          //     {
+          //       query: FIND_POSTS,
+          //       variables: {
+          //         limit: 1,
+          //         cursor: null,
+          //       },
+          //     },
+    
+          //     (data) => {
+          //       console.log(data)
+          //       return { ...data, posts: [...data.posts, result] };
+          //     }
+          //   );
+          // },
           createPost: (result, args, cache, info) => {
             cache.updateQuery(
               {

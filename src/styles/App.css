@@ -111,6 +111,18 @@ body,
   padding: 0;
   scroll-behavior: smooth;
   font-family: "Bree Serif", serif;
+  scrollbar-width: none;
+  /* Firefox 64 */
+  -ms-overflow-style: none;
+  /* Internet Explorer 11 */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar,
+.App::-webkit-scrollbar {
+  /** WebKit */
+  display: none;
 }
 
 .home {
