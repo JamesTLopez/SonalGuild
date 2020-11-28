@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Scale, Key } from "@tonaljs/tonal";
+import {UPDATE_DESCRIPTION} from "../../urql/mutations"
+import { useMutation } from "urql";
 
 interface lyricsProps {
-  title:string;
+  songId:number;
   description:string;
 }
 
 
-const LyricsArea: React.FC<lyricsProps> = ({title,description}) => {
+const LyricsArea: React.FC<lyricsProps> = ({songId,description}) => {
   const NOTES = [
     "C",
     "C#",
@@ -30,8 +32,9 @@ const LyricsArea: React.FC<lyricsProps> = ({title,description}) => {
     scale: Scale.get("C major"),
     type: "major",
   });
-
+  const [, updateDescription] = useMutation(UPDATE_DESCRIPTION);
   const [theoryActivated, isActivated] = useState<boolean>(false);
+  const [value, setValue] = useState(description);
 
 
 
@@ -174,9 +177,9 @@ const LyricsArea: React.FC<lyricsProps> = ({title,description}) => {
             </div>
           </div>
         </div>
-
+        <button onClick={() => updateDescription({id:songId,description:value})}>FIND</button>
         <div className="text">
-          <ReactQuill value={description} modules={{"toolbar":false}}  />
+          <ReactQuill value={value} modules={{"toolbar":false}} onChange={setValue}  />
         </div>
       </div>
     </div>

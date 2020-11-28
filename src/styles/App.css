@@ -560,6 +560,11 @@ body,
   min-height: 680px;
 }
 
+.home .footer-container {
+  min-height: 400px;
+  background-color: #e76f51;
+}
+
 .authentication {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -315,6 +315,11 @@ body,
     background-color: #f48b64;
     min-height: 680px;
   }
+
+  .footer-container{
+    min-height: 400px;
+    background-color: $redsun;
+  }
 }
 
 //AUTHENTICATION SCSS
