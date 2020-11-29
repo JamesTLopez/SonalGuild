@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Button, LinearProgress } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
@@ -13,6 +13,7 @@ interface Values {
 
 function RegisterForm() {
   const [, register] = useMutation(REGISTER_MUTATION);
+  let history = useHistory();
 
   return (
     <div className="register-container">
@@ -34,6 +35,8 @@ function RegisterForm() {
 
             if (!values.username) {
               errors.username = "Required";
+            }else if(values.username.length < 3){
+              errors.username = "Must be longer than 3 characters";
             }
 
             if (!values.password) {
@@ -50,15 +53,16 @@ function RegisterForm() {
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(async () => {
               setSubmitting(false);
-              console.log(values);
-              let res = await register(values);
-              console.log(res);
-              // alert(JSON.stringify(values, null, 2));
+
+              let res = await register({username:values.username,password:values.password});
+              console.log( res);
+              history.push('/dashboard')
+ 
             }, 500);
           }}
         >
-          {({ submitForm, isSubmitting }) => (
-            <Form>
+          {({ submitForm, isSubmitting , handleSubmit}) => (
+            <form onSubmit={handleSubmit}>
               <Field
                 component={TextField}
                 name="username"
@@ -111,6 +115,7 @@ function RegisterForm() {
                   color="primary"
                   style={{ background: "#2a9d8f" }}
                   disabled={isSubmitting}
+                  type="submit"
                   onClick={submitForm}
                 >
                   Register
@@ -120,7 +125,7 @@ function RegisterForm() {
                 </Link>
               </div>
               {isSubmitting && <LinearProgress />}
-            </Form>
+            </form>
           )}
         </Formik>
       </div>
