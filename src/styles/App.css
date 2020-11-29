@@ -655,14 +655,29 @@ body::-webkit-scrollbar,
 }
 
 .authentication .auth-container #left-panel .information-container .title .img-container {
+  position: relative;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  height: 100px;
+  width: 100px;
   margin: auto;
 }
 
+.authentication .auth-container #left-panel .information-container .title .img-container a {
+  position: relative;
+}
+
 .authentication .auth-container #left-panel .information-container .title .img-container a img {
+  left: 50%;
+  position: absolute;
   height: 100px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.authentication .auth-container #left-panel .information-container .title .img-container a img:hover {
+  height: 110px;
 }
 
 .authentication .auth-container #left-panel .information-container .description {

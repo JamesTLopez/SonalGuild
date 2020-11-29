@@ -373,11 +373,22 @@ body,
           margin: 0 1em;
           color: white;
           .img-container {
+            position: relative;
             align-self: center;
+            height: 100px;
+            width: 100px;
             margin: auto;
             a {
+              position: relative;
               img {
+                left: 50%;
+                position: absolute;
                 height: 100px;
+                transition: all 0.5s;
+
+                &:hover{
+                  height: 110px;
+                }
               }
             }
           }

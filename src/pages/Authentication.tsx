@@ -13,9 +13,8 @@ function Register() {
     query: ME_QUERY,
   });
 
-  if(result.data?.me){
-    history.push('/dashboard')
-  }
+
+
 
 
   return (
