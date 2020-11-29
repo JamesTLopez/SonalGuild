@@ -55,8 +55,8 @@ function LoginForm() {
             }, 500);
           }}
         >
-          {({ submitForm, isSubmitting }) => (
-            <Form>
+          {({ submitForm, isSubmitting,handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
               <Field
                 component={TextField}
                 name="username"
@@ -93,6 +93,7 @@ function LoginForm() {
                   color="primary"
                   style={{ background: "#2a9d8f" }}
                   disabled={isSubmitting}
+                  type="submit"
                   onClick={submitForm}
                 >
                   Login
@@ -102,7 +103,7 @@ function LoginForm() {
                 </Link>
               </div>
               {isSubmitting && <LinearProgress />}
-            </Form>
+            </form>
           )}
         </Formik>
         </div>

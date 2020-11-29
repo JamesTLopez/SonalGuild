@@ -978,7 +978,7 @@ body::-webkit-scrollbar,
   display: flex;
   background-color: #a8dadc36;
   margin: 0.7em 0;
-  padding: 0.2em;
+  padding: 0.4em;
   border-radius: 2px;
 }
 
@@ -986,9 +986,19 @@ body::-webkit-scrollbar,
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #264653;
   font-size: 25px;
   margin: 0 0 0 1em;
+}
+
+.dashboard-container .dashboard-content .SongLibrary .title-container button {
+  font-size: 13px;
 }
 
 .dashboard-container .dashboard-content .SongLibrary .song-list {
