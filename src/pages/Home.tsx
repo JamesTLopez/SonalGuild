@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../components/home-sections/Footer";
-import Header from "../components/home-sections/Header";
-import Main from "../components/home-sections/Main";
+import Footer from "./home-sections/Footer";
+import Header from "./home-sections/Header";
+import Main from "./home-sections/Main";
 import { Wave1 } from "../images/imageList";
 
 function Home() {

@@ -96,7 +96,7 @@ function RegisterForm() {
                 component={TextField}
                 type="password"
                 name="confirmPassword"
-                id="filled-full-width"
+                id="filled-full-widths"
                 label="Confirm Password"
                 style={{ margin: "1em 0" }}
                 placeholder=""
