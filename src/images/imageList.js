@@ -1,4 +1,5 @@
 export {default as ShieldLogo} from './ShieldLogo.png';
+export {default as LoginPic} from './login.png';
 export {default as Ray1} from './ray1.svg';
 export {default as Ray2} from './ray2.svg';
 
@@ -15,3 +16,4 @@ export {default as Note4} from './note3.svg';
 
 
 export {default as Wave1} from './WAVE.svg';
+

@@ -30,8 +30,8 @@ function CreatePostForm() {
           }, 500);
         }}
       >
-        {({ submitForm, isSubmitting }) => (
-          <Form>
+        {({ submitForm, isSubmitting, handleSubmit }) => (
+          <form onSubmit={handleSubmit}>
             <div className="title">
               <h1>Create Song</h1>
             </div>
@@ -78,7 +78,7 @@ function CreatePostForm() {
               </Button>
             </div>
             {isSubmitting && <LinearProgress />}
-          </Form>
+          </form>
         )}
       </Formik>
     </div>

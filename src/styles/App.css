@@ -518,6 +518,44 @@ body::-webkit-scrollbar,
   width: 100%;
 }
 
+.home .description-container .login-section-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.home .description-container .login-section-description img {
+  width: 580px;
+  height: 327px;
+  -webkit-box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.home .description-container .login-section-description .login-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 60px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home .description-container .login-section-description .login-title h1 {
+  font-size: 30px;
+}
+
+.home .description-container .login-section-description .login-title p {
+  font-size: 20px;
+}
+
 .home .wave-1,
 .home .wave-2 {
   position: relative;

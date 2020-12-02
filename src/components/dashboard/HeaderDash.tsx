@@ -14,13 +14,11 @@ interface props {
 const HeaderDash: React.FC<props> = ({username}) => {
 
   const history = useHistory();
-
-
   const [result] = useQuery({
     query: ME_QUERY,
   });
-  const [, logout] = useMutation(LOGOUT_MUTATION);
 
+  const [, logout] = useMutation(LOGOUT_MUTATION);
   const { data, fetching, error } = result;
 
   if (fetching){
