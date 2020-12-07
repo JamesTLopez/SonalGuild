@@ -64,7 +64,6 @@ function SongLibrary() {
               key={post.id}
               postId={post.id}
               title={post.title}
-              description={post.description}
               creator={post.creator}
               createdAt={post.createdAt}
             />

@@ -962,16 +962,16 @@ body,
 .modal-content {
   display: flex;
   flex-direction: column;
-  background-color: $redsun;
+  background-color: white;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.377);
   margin: 15% auto; /* 15% from the top and centered */
   padding: 30px;
   border: 1px solid #888;
   width: 550px;
-  height: 300px;
+height: 500px;
   h1 {
     margin: 0;
-    color: white;
+    color: rgb(161, 161, 161);
   }
   .close {
     position: absolute;

@@ -14,8 +14,8 @@ export const REGISTER_MUTATION = `mutation Register($username:String!,$password:
   }
   `;
 
-export const CREATE_SONG = `mutation CreatePost($title:String!,$description:String!){
-  createPost(input:{title:$title,description:$description}){
+export const CREATE_SONG = `mutation CreatePost($title:String!,$description:String!,$key:String!,$scaleType:String!){
+  createPost(input:{title:$title,description:$description,key:$key,scaleType:$scaleType}){
     id
     title
     description

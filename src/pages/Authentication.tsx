@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route,useRouteMatch,useHistory } from "react-router-dom";
+import { Switch, Route,useRouteMatch } from "react-router-dom";
 import { useQuery } from "urql";
 import LoginForm from "../components/auth/LoginForm";
 import RegisterForm from "../components/auth/RegisterForm";
@@ -8,12 +8,11 @@ import { ME_QUERY } from "../urql/queries";
 
 function Register() {
   let { path } = useRouteMatch();
-  let history = useHistory();
   const [result] = useQuery({
     query: ME_QUERY,
   });
 
-
+console.log(result)
 
 
 

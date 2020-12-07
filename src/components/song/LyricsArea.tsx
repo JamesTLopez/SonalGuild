@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Scale, Key } from "@tonaljs/tonal";
-import {UPDATE_DESCRIPTION} from "../../urql/mutations"
-import { useMutation } from "urql";
+import { UPDATE_DESCRIPTION } from "../../urql/mutations";
+import { useMutation, useQuery } from "urql";
+import { FIND_ONE_POST } from "../../urql/queries";
+
 
 interface lyricsProps {
-  songId:number;
-  description:string;
+  songId: number;
 }
 
-
-const LyricsArea: React.FC<lyricsProps> = ({songId,description}) => {
+const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
   const NOTES = [
     "C",
     "C#",
@@ -26,24 +26,31 @@ const LyricsArea: React.FC<lyricsProps> = ({songId,description}) => {
     "A#",
     "B",
   ];
+
   const [tempState, setTemp] = useState<any>({
     key: "C",
     chord: Key.majorKey("C"),
     scale: Scale.get("C major"),
     type: "major",
   });
-  const [, updateDescription] = useMutation(UPDATE_DESCRIPTION);
   const [theoryActivated, isActivated] = useState<boolean>(false);
-  const [value, setValue] = useState(description);
+  const [value, setValue] = useState("");
 
-  const updateFunction = (e:string) =>{
+  const [, updateDescription] = useMutation(UPDATE_DESCRIPTION);
+  const [result] = useQuery({
+    query: FIND_ONE_POST,
+    variables: {
+      id: songId,
+    },
+  });
 
-    console.log(e)
+  console.log(result)
+
+  const updateFunction = (e: string) => {
+    console.log(e);
     setValue(e);
-    updateDescription({id:songId,description:e})
-  }
-
-
+    updateDescription({ id: songId, description: e });
+  };
 
   function changeKey(key: string) {
     switch (key) {
@@ -102,7 +109,6 @@ const LyricsArea: React.FC<lyricsProps> = ({songId,description}) => {
                 <path fill="none" d="M0 0h24v24H0z"></path>
                 <path d="M11.95 7.95l-1.414 1.414L8 6.828 8 20H6V6.828L3.465 9.364 2.05 7.95 7 3l4.95 4.95zm10 8.1L17 21l-4.95-4.95 1.414-1.414 2.537 2.536L16 4h2v13.172l2.536-2.536 1.414 1.414z"></path>
               </g>
-              
             </svg>
           </button>
           <div className="Key-controller">
@@ -171,8 +177,13 @@ const LyricsArea: React.FC<lyricsProps> = ({songId,description}) => {
                       className="note"
                       draggable={true}
                       onDragStart={(event: any) => {
-                        console.log(event.dataTransfer.setData("text/plain", event.target.innerText))
-                        console.log(event.dataTransfer)
+                        console.log(
+                          event.dataTransfer.setData(
+                            "text/plain",
+                            event.target.innerText
+                          )
+                        );
+                        console.log(event.dataTransfer);
                       }}
                       key={index}
                     >
@@ -184,13 +195,17 @@ const LyricsArea: React.FC<lyricsProps> = ({songId,description}) => {
             </div>
           </div>
         </div>
-  
+
         <div className="text">
-          <ReactQuill value={value} modules={{"toolbar":false}} onChange={updateFunction}  />
+          <ReactQuill
+            value={value}
+            modules={{ toolbar: false }}
+            onChange={updateFunction}
+          />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default LyricsArea;

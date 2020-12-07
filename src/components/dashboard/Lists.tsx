@@ -13,7 +13,6 @@ interface creatorObj {
 interface songinformation {
   postId:number;
   title: string;
-  description:string;
   creator: creatorObj;
   createdAt: string;
 }

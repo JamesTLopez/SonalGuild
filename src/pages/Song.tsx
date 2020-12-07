@@ -33,7 +33,7 @@ function Song() {
   return (
     <div className="song-container">
       <MainHeader title={data.post.title}/>
-      <LyricsArea songId={parseInt(sd.id)} description={data.post.description}/>
+      <LyricsArea songId={parseInt(sd.id)}/>
     </div>
   );
 }
