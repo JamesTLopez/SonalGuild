@@ -710,12 +710,13 @@ body::-webkit-scrollbar,
   left: 50%;
   position: absolute;
   height: 100px;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .authentication .auth-container #left-panel .information-container .title .img-container a img:hover {
-  height: 110px;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .authentication .auth-container #left-panel .information-container .description {

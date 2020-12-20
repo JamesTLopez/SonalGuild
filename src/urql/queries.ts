@@ -13,22 +13,20 @@ export const FIND_POSTS = `query($limit:Int!,$cursor:String){
   }
 }`;
 
-
-export const ME_QUERY =  `{
+export const ME_QUERY = `{
   me{
     id
     username
     createdAt
   }
-}`
-
-
-
+}`;
 
 export const FIND_ONE_POST = `query($id:Int!) {
   post(id:$id){
     title
     description
+    key
+    scaleType
   }
 
-}`
+}`;

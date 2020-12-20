@@ -30,4 +30,20 @@ const config: ChordSettings = {
   fixedDiagramPosition: false,
 };
 
+export const NOTES = [
+  "C",
+  "C#",
+  "D",
+  "D#",
+  "E",
+  "F",
+  "F#",
+  "G",
+  "G#",
+  "A",
+  "A#",
+  "B",
+];
+
+
 export default config;

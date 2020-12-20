@@ -405,10 +405,10 @@ body,
                 left: 50%;
                 position: absolute;
                 height: 100px;
-                transition: all 0.5s;
+                transition: all 0.3s;
 
                 &:hover{
-                  height: 110px;
+                  transform: scale(1.1)
                 }
               }
             }

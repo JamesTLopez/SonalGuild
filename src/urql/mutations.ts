@@ -46,10 +46,12 @@ mutation{
   logout
 }`;
 
-export const UPDATE_DESCRIPTION = `mutation updateDescription($id:Int!,$description:String!){
-  updateDescription(id:$id,description:$description){
+export const UPDATE_SONG = `mutation updatePost($id:Int!$description:String!,$key:String!,$scaleType:String!){
+  updatePost(id:$id,description:$description,key:$key,scaleType:$scaleType){
     id
     title
     description
+    key
+    scaleType
   }
 }`;

@@ -1,6 +1,6 @@
 import { createClient, dedupExchange, fetchExchange } from "urql";
 import { cacheExchange } from "@urql/exchange-graphcache";
-import { ME_QUERY, FIND_POSTS } from "./queries";
+import { ME_QUERY, FIND_POSTS ,FIND_ONE_POST} from "./queries";
 
 export const client = createClient({
   url: "http://localhost:4000/graphql",
@@ -36,19 +36,19 @@ export const client = createClient({
               return { ...data, me: result.login.user };
             });
           },
-          updateDescription: (result, args, cache, info)=>{
+          updatePost:(result, args, cache, info)=>{
             cache.updateQuery(
               {
-                query: FIND_POSTS,
+                query: FIND_ONE_POST,
                 variables: {
-                  limit: 1,
-                  cursor: null,
+                  id: args.id,
                 },
               },
     
               (data) => {
                 console.log(data)
-                return { ...data, posts: [...data.posts, result] };
+                console.log(result)
+                return { ...data};
               }
             );
           },
@@ -62,6 +62,7 @@ export const client = createClient({
                 },
               },
               (data) => {
+
                 return { ...data, posts: [...data.posts, result] };
               }
             );

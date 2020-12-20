@@ -1,74 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Scale, Key } from "@tonaljs/tonal";
-import { UPDATE_DESCRIPTION } from "../../urql/mutations";
+import { UPDATE_SONG } from "../../urql/mutations";
 import { useMutation, useQuery } from "urql";
 import { FIND_ONE_POST } from "../../urql/queries";
-
+import { NOTES } from "./_config";
+import ErrorPage from "../../pages/ErrorPage";
 
 interface lyricsProps {
   songId: number;
 }
 
 const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
-  const NOTES = [
-    "C",
-    "C#",
-    "D",
-    "D#",
-    "E",
-    "F",
-    "F#",
-    "G",
-    "G#",
-    "A",
-    "A#",
-    "B",
-  ];
-
   const [tempState, setTemp] = useState<any>({
     key: "C",
     chord: Key.majorKey("C"),
     scale: Scale.get("C major"),
     type: "major",
+    description: "",
   });
   const [theoryActivated, isActivated] = useState<boolean>(false);
-  const [value, setValue] = useState("");
 
-  const [, updateDescription] = useMutation(UPDATE_DESCRIPTION);
-  const [result] = useQuery({
-    query: FIND_ONE_POST,
-    variables: {
-      id: songId,
-    },
-  });
-
-  console.log(result)
-
-  const updateFunction = (e: string) => {
-    console.log(e);
-    setValue(e);
-    updateDescription({ id: songId, description: e });
-  };
-
-  function changeKey(key: string) {
+  const changeKey = (key: string) => {
     switch (key) {
       case "UP":
-        let index = NOTES.indexOf(tempState.key);
+        let index = NOTES.indexOf(data.post.key);
         let newKey = NOTES[index + 1];
 
         if (newKey === undefined) {
           newKey = NOTES[0];
         }
 
-        setTemp({
-          key: newKey,
-          chord: Key.majorKey(newKey),
-          scale: Scale.get(`${newKey} ` + tempState.type),
-          type: "major",
-        });
-        console.log(tempState);
+        updatePost({id:songId,description:data.post.description,key:newKey,scaleType:data.post.scaleType})
+        console.log("UP");
         break;
       case "DOWN":
         let indexs = NOTES.indexOf(tempState.key);
@@ -89,6 +54,25 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
       default:
         console.log("error");
     }
+  };
+
+  const [, updatePost] = useMutation(UPDATE_SONG);
+  const [result] = useQuery({
+    query: FIND_ONE_POST,
+    variables: {
+      id: songId,
+    },
+  });
+
+  const { data, fetching, error } = result;
+
+  useEffect(() => {});
+
+  if (fetching) return <p>Loading...</p>;
+  if (error) {
+    console.log(error.response.status);
+
+    return <ErrorPage status={error.response.status} />;
   }
 
   return (
@@ -111,9 +95,10 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
               </g>
             </svg>
           </button>
+
           <div className="Key-controller">
             <label>Key</label>
-            <div className="key-display">{`${tempState.key} ${tempState.type}`}</div>
+            <div className="key-display">{`${data.post.key} ${data.post.scaleType}`}</div>
           </div>
           <div className="sep-vertical"></div>
           <div className="Transpose-controller">
@@ -159,7 +144,8 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
         <div className={!theoryActivated ? "theory" : "displayNone"}>
           <div className="key">
             <div className="key-container">
-              <h1>{`${tempState.key} ${tempState.type}`}</h1>
+              <h1>{`${data.post.key} ${data.post.scaleType}`}</h1>
+              <button onClick={() => {}}></button>
               <div className="item-list">
                 <div className="left-panel">
                   <p>I</p>
@@ -172,24 +158,26 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
                 </div>
                 <div className="vert-sep"></div>
                 <div className="right-panel">
-                  {tempState.chord.chords.map((note: string, index: number) => (
-                    <div
-                      className="note"
-                      draggable={true}
-                      onDragStart={(event: any) => {
-                        console.log(
-                          event.dataTransfer.setData(
-                            "text/plain",
-                            event.target.innerText
-                          )
-                        );
-                        console.log(event.dataTransfer);
-                      }}
-                      key={index}
-                    >
-                      {note}
-                    </div>
-                  ))}
+                  {Key.majorKey(data.post.key).chords.map(
+                    (note: string, index: number) => (
+                      <div
+                        className="note"
+                        draggable={true}
+                        onDragStart={(event: any) => {
+                          console.log(
+                            event.dataTransfer.setData(
+                              "text/plain",
+                              event.target.innerText
+                            )
+                          );
+                          console.log(event.dataTransfer);
+                        }}
+                        key={index}
+                      >
+                        {note}
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             </div>
@@ -198,9 +186,8 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
 
         <div className="text">
           <ReactQuill
-            value={value}
+            value={tempState.description}
             modules={{ toolbar: false }}
-            onChange={updateFunction}
           />
         </div>
       </div>
