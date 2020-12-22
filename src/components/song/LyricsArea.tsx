@@ -33,22 +33,17 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
         }
 
         updatePost({id:songId,description:data.post.description,key:newKey,scaleType:data.post.scaleType})
-        console.log("UP");
+
         break;
       case "DOWN":
-        let indexs = NOTES.indexOf(tempState.key);
+        let indexs = NOTES.indexOf(data.post.key);
         let newKeys = NOTES[indexs - 1];
 
         if (newKeys === undefined) {
           newKeys = NOTES[11];
         }
-
-        setTemp({
-          key: newKeys,
-          chord: Key.majorKey(newKeys),
-          scale: Scale.get(`${newKeys} ` + tempState.type),
-          type: "major",
-        });
+        
+        updatePost({id:songId,description:data.post.description,key:newKeys,scaleType:data.post.scaleType})
 
         break;
       default:
@@ -66,7 +61,6 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
 
   const { data, fetching, error } = result;
 
-  useEffect(() => {});
 
   if (fetching) return <p>Loading...</p>;
   if (error) {

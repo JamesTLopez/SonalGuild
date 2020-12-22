@@ -47,8 +47,8 @@ export const client = createClient({
     
               (data) => {
                 console.log(data)
-                console.log(result)
-                return { ...data};
+                console.log(result.updatePost)
+                return { ...data,post:result.updatePost};
               }
             );
           },
