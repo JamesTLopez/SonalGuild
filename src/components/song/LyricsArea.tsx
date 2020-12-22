@@ -13,13 +13,6 @@ interface lyricsProps {
 }
 
 const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
-  const [tempState, setTemp] = useState<any>({
-    key: "C",
-    chord: Key.majorKey("C"),
-    scale: Scale.get("C major"),
-    type: "major",
-    description: "",
-  });
   const [theoryActivated, isActivated] = useState<boolean>(false);
 
   const changeKey = (key: string) => {
@@ -31,14 +24,12 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
         if (newKey === undefined) {
           newKey = NOTES[0];
         }
-
         updatePost({id:songId,description:data.post.description,key:newKey,scaleType:data.post.scaleType})
 
         break;
       case "DOWN":
         let indexs = NOTES.indexOf(data.post.key);
         let newKeys = NOTES[indexs - 1];
-
         if (newKeys === undefined) {
           newKeys = NOTES[11];
         }
@@ -51,6 +42,8 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
     }
   };
 
+
+  
   const [, updatePost] = useMutation(UPDATE_SONG);
   const [result] = useQuery({
     query: FIND_ONE_POST,
@@ -180,7 +173,7 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
 
         <div className="text">
           <ReactQuill
-            value={tempState.description}
+            value={""}
             modules={{ toolbar: false }}
           />
         </div>

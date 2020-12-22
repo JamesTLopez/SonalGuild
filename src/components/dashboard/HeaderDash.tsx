@@ -30,7 +30,7 @@ const HeaderDash: React.FC<props> = ({username}) => {
 
   return (
     <header className="header-dash">
-      <Link to="/authentication/login">
+      <Link to="/">
         <img src={ShieldLogo} alt="Shield Logo" />
         <label>SONALS GUILD</label>
       </Link>
