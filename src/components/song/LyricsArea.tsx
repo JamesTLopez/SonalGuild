@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { Scale, Key } from "@tonaljs/tonal";
+import {  Key } from "@tonaljs/tonal";
 import { UPDATE_SONG } from "../../urql/mutations";
 import { useMutation, useQuery } from "urql";
 import { FIND_ONE_POST } from "../../urql/queries";
@@ -43,7 +43,7 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
   };
 
 
-  
+
   const [, updatePost] = useMutation(UPDATE_SONG);
   const [result] = useQuery({
     query: FIND_ONE_POST,
@@ -132,7 +132,7 @@ const LyricsArea: React.FC<lyricsProps> = ({ songId }) => {
           <div className="key">
             <div className="key-container">
               <h1>{`${data.post.key} ${data.post.scaleType}`}</h1>
-              <button onClick={() => {}}></button>
+    <div className="sep"></div>
               <div className="item-list">
                 <div className="left-panel">
                   <p>I</p>

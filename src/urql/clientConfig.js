@@ -12,8 +12,9 @@ export const client = createClient({
         Mutation: {
         
           logout: (result, args, cache, info) => {
-            cache.updateQuery({ query: ME_QUERY }, (data) => {
-              return { ...data, me: null };
+            cache.updateQuery({ query: ME_QUERY }, 
+              (data) => {
+                return { ...data, me: null };
             });
           },
           logout: (result, args, cache, info) => {
@@ -46,8 +47,6 @@ export const client = createClient({
               },
     
               (data) => {
-                console.log(data)
-                console.log(result.updatePost)
                 return { ...data,post:result.updatePost};
               }
             );
